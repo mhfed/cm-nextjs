@@ -19,6 +19,14 @@ const nextConfig = {
         pathname: '/cdn-cgi/**',
       },
     ],
+    minimumCacheTTL: 60,
+  },
+  swcMinify: true,
+  compress: true,
+  optimizeFonts: true,
+  experimental: {
+    optimizeCss: true,
+    turbo: true,
   },
 }
 
