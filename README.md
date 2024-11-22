@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Coolmate Next.js Project
 
-## Getting Started
+Clone của website CM được xây dựng bằng Next.js và Docker.
 
-First, run the development server:
+## Yêu cầu hệ thống
 
+- Docker và Docker Compose
+- Node.js 20.x (nếu muốn chạy không qua Docker)
+
+## Chạy ứng dụng với Docker
+
+1. **Clone project**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd coolmate-nextjs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Khởi động với Docker**
+```bash
+# Build và chạy container
+docker-compose up --build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Hoặc chạy ở chế độ detached
+docker-compose up -d
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ứng dụng sẽ chạy tại [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+3. **Các lệnh Docker hữu ích**
+```bash
+# Xem logs
+docker-compose logs -f
 
-To learn more about Next.js, take a look at the following resources:
+# Dừng container
+docker-compose down
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Xóa container và volume
+docker-compose down -v
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Docker Commands
 
-## Deploy on Vercel
+```bash
+# Development Mode
+docker compose --profile dev up --build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Production Mode
+docker compose --profile prod up --build
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Chạy ở chế độ detached
+docker compose --profile dev up -d  # cho development
+docker compose --profile prod up -d # cho production
+
+# Xem logs
+docker compose --profile dev logs -f  # cho development
+docker compose --profile prod logs -f # cho production
+
+# Dừng containers
+docker compose --profile dev down
+docker compose --profile prod down
+```
+
+## Chạy ứng dụng không dùng Docker
+
+```bash
+# Cài đặt dependencies
+npm install
+
+# Chạy development server
+npm run dev
+
+# Build và chạy production
+npm run build
+npm start
+```
+
+## Cấu trúc project
+
+```
+.
+├── src/
+│   ├── app/          # Next.js app router
+│   ├── components/   # React components
+│   └── ...
+├── public/           # Static files
+├── Dockerfile        # Docker configuration
+├── docker-compose.yml
+└── ...
+```
+
+## Công nghệ sử dụng
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Docker](https://www.docker.com/)
+
+## Tác giả
+
+- Tên tác giả
+- Email/Liên hệ
+
+## License
+
+MIT
