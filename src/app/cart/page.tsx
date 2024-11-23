@@ -1,6 +1,6 @@
-import { CartList } from "@components/cart/cart-list";
-import { CartSummary } from "@components/cart/cart-summary";
 import { Container } from "@components/ui/container";
+import { CartList } from "./_components/cart-list";
+import { CartSummary } from "./_components/cart-summary";
 
 export default function CartPage() {
   return (
