@@ -1,17 +1,18 @@
+import React from 'react';
+
+interface AccountLayoutProps {
+  children: React.ReactNode;
+  auth: React.ReactNode;
+}
+
 export default function AccountLayout({
   children,
-  login,
-  register,
-}: {
-  children: React.ReactNode
-  login: React.ReactNode
-  register: React.ReactNode
-}) {
+  auth,
+}: AccountLayoutProps) {
   return (
-    <>
+    <div className="container mx-auto py-8">
+      {auth}
       {children}
-      {login}
-      {register}
-    </>
-  )
+    </div>
+  );
 } 

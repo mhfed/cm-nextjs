@@ -1,6 +1,3 @@
-"use client"
-
-import * as React from "react"
 import Link from "next/link"
 import {
   NavigationMenu,
@@ -73,6 +70,39 @@ const categories = {
       }
     ]
   },
+  "ĐỒ LÓT": {
+    sections: [
+      {
+        title: "ĐỒ LÓT NAM",
+        items: [
+          { title: "Tất cả Đồ lót Nam", href: "/do-lot-nam" },
+          { title: "Quần lót", href: "/do-lot-nam/quan-lot" },
+          { title: "Áo lót", href: "/do-lot-nam/ao-lot" },
+          { title: "Bộ đồ lót", href: "/do-lot-nam/bo-do-lot" },
+        ]
+      },
+      {
+        title: "LOẠI ĐỒ LÓT",
+        items: [
+          { title: "Boxer", href: "/do-lot-nam/boxer" },
+          { title: "Brief", href: "/do-lot-nam/brief" },
+          { title: "Trunk", href: "/do-lot-nam/trunk" },
+        ]
+      },
+    ],
+    featured: [
+      {
+        title: "Quần Lót Nam Boxer Modal",
+        href: "/products/quan-lot-nam-boxer-modal",
+        imageSrc: "/images/quan-lot-boxer-modal.jpg"
+      },
+      {
+        title: "Áo Lót Nam Coolmate Promax",
+        href: "/products/ao-lot-nam-coolmate-promax",
+        imageSrc: "/images/ao-lot-coolmate-promax.jpg"
+      }
+    ]
+  },
   // Thêm các menu khác tương tự...
 }
 
@@ -135,13 +165,6 @@ export function MainNav() {
         ))}
 
         {/* Các menu item khác */}
-        <NavigationMenuItem>
-          <Link href="/do-lot" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              ĐỒ LÓT
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
         {/* Thêm các menu item khác tương tự */}
       </NavigationMenuList>
     </NavigationMenu>
