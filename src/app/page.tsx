@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/container';
 import { ProductCarousel } from '@components/product-carousel';
 import Image from 'next/image';
 import Link from 'next/link';
+import { MainNav } from "@/components/navigation-menu"
 
 export default function Home() {
   return (
@@ -42,17 +43,7 @@ export default function Home() {
             </Link>
 
             {/* Main Menu */}
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="/outlet" className="text-red-600 font-medium">
-                OUTLET -50%
-              </Link>
-              <Link href="/products" className="text-white hover:text-gray-300">SẢN PHẨM</Link>
-              <Link href="/underwear" className="text-white hover:text-gray-300">ĐỒ LÓT</Link>
-              <Link href="/sportswear" className="text-white hover:text-gray-300">ĐỒ THỂ THAO</Link>
-              <Link href="/daily" className="text-white hover:text-gray-300">MẶC HÀNG NGÀY</Link>
-              <Link href="/custom" className="text-white hover:text-gray-300">SẢN XUẤT RIÊNG</Link>
-              <Link href="/care-share" className="text-white hover:text-gray-300">CARE & SHARE</Link>
-            </div>
+            <MainNav />
 
             {/* Right Menu */}
             <div className="flex items-center gap-4">
