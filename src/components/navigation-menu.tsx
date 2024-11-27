@@ -119,11 +119,11 @@ export function MainNav() {
         </NavigationMenuItem>
 
         {Object.entries(categories).map(([category, content]) => (
-          <NavigationMenuItem key={category}>
-            <NavigationMenuTrigger className="text-white hover:text-gray-300">
+          <NavigationMenuItem key={category} className="h-20">
+            <NavigationMenuTrigger className="text-white hover:text-gray-300 h-full">
               {category}
             </NavigationMenuTrigger>
-            <NavigationMenuContent>
+            <NavigationMenuContent className="mt-0">
               <div className="grid w-[800px] grid-cols-4 gap-3 p-4 bg-white">
                 {content.sections.map((section) => (
                   <div key={section.title}>

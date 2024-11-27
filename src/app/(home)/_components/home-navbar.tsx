@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/container"
 export function HomeNavbar() {
   return (
     <nav className="bg-black shadow-sm sticky top-0 z-50">
-      <Container size="full" className="py-4">
+      <Container size='full' className="">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">

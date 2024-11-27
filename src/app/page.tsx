@@ -4,40 +4,26 @@ import { ProductCarousel } from '@components/product-carousel';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MainNav } from "@/components/navigation-menu"
+import TopBar from '@components/top-bar';
+import TopBarPromotion from '@components/top-bar-promotion';
+import { ArrowLeftIcon, ArrowRightIcon, SearchIcon, UserIcon, ShoppingCartIcon } from 'lucide-react';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Top Bar */}
-      <div className="bg-white border-b">
-        <Container size='full' className="py-2">
-          <div className="flex justify-between items-center text-sm">
-            <div className="flex gap-4">
-              <Link href="/">COOL CLUB</Link>
-              <Link href="/">BARISING</Link>
-              <Link href="/">COOLXPRINT</Link>
-            </div>
-            <div className="flex gap-4">
-              <Link href="/account">Thẻ thành viên</Link>
-              <Link href="/blog">Blog</Link>
-              <Link href="/about">Về Coolmate</Link>
-              <Link href="/support">CSKH</Link>
-            </div>
-          </div>
-        </Container>
-      </div>
-
+      <TopBar />
+      <TopBarPromotion />
       {/* Main Navigation */}
       <nav className="bg-black shadow-sm sticky top-0 z-50">
-        <Container size='full' className="py-4">
+        <Container size='full' className="">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <Image
                 src="https://www.coolmate.me/images/logo-coolmate-new.svg"
                 alt="Coolmate"
-                width={120}
-                height={40}
+                width={70}
+                height={50}
                 priority
               />
             </Link>
@@ -53,29 +39,13 @@ export default function Home() {
                   placeholder="Tìm kiếm sản phẩm..."
                   className="pl-10 pr-4 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <Image
-                  src="/images/search-icon.png"
-                  alt="Search"
-                  width={20}
-                  height={20}
-                  className="absolute left-3 top-1/2 transform -translate-y-1/2"
-                />
+                <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
               </div>
               <Link href="/account/login">
-                <Image
-                  src="/images/user-icon.png"
-                  alt="Account"
-                  width={24}
-                  height={24}
-                />
+                <UserIcon className="w-6 h-6 text-white" />
               </Link>
               <Link href="/cart" className="relative">
-                <Image
-                  src="/images/cart-icon.png"
-                  alt="Cart"
-                  width={24}
-                  height={24}
-                />
+                <ShoppingCartIcon className="w-6 h-6 text-white" />
                 <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                   0
                 </span>
@@ -118,22 +88,12 @@ export default function Home() {
         {/* Navigation Arrows */}
         <Container size='full' className="absolute bottom-8 left-0 right-0">
           <div className="flex justify-between">
-            <button className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-              <Image
-                src="/images/arrow-left.png"
-                alt="Previous"
-                width={24}
-                height={24}
-              />
-            </button>
-            <button className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-              <Image
-                src="/images/arrow-right.png"
-                alt="Next"
-                width={24}
-                height={24}
-              />
-            </button>
+            <Button variant="outline" className="w-12 h-12 rounded-full flex items-center justify-center">
+              <ArrowLeftIcon className="w-6 h-6" />
+            </Button>
+            <Button variant="outline" className="w-12 h-12 rounded-full flex items-center justify-center">
+              <ArrowRightIcon className="w-6 h-6" />
+            </Button>
           </div>
         </Container>
         <Container size='full' className="py-10">
