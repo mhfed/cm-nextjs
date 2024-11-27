@@ -1,23 +1,19 @@
 export type Product = {
   id: string;
   name: string;
-  description: string;
   price: number;
-  images: string[];
-  category: string;
-  variants?: ProductVariant[];
-  specifications?: Record<string, string>;
-  stock: number;
-  createdAt: Date;
-  updatedAt: Date;
+  rating?: number;
+  reviewCount?: number;
+  variants: ProductVariant[];
+  isFreeShipping?: boolean;
+  isPromotion?: boolean;
 };
 
 export type ProductVariant = {
-  id: string;
-  name: string;
-  price: number;
-  stock: number;
-  attributes: Record<string, string>;
+  color: string;
+  colorCode: string;
+  images: string[];
+  sizes: string[];
 };
 
 export type ProductQueryParams = {

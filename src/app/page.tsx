@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
+import { ProductCarousel } from '@components/product-carousel';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -143,6 +144,9 @@ export default function Home() {
               />
             </button>
           </div>
+        </Container>
+        <Container size='full' className="py-10">
+          <ProductCarousel/>
         </Container>
       </div>
     </div>
