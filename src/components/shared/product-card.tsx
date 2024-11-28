@@ -1,13 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { Card, CardContent } from "./ui/card"
-import { Badge } from "./ui/badge"
+import { Card, CardContent } from "../ui/card"
+import { Badge } from "../ui/badge"
 import { 
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "./ui/hover-card"
+} from "../ui/hover-card"
 import { cn } from "@/lib/utils"
 import { Product } from "@/types/product"
 import Image from "next/image"

@@ -4,8 +4,8 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "./ui/carousel"
-import { ProductCard } from "./product-card"
+} from "@components/ui/carousel"
+import { ProductCard } from "@components/shared/product-card"
 import { Product } from "@/types/product"
 
 const dummyProducts: Product= 

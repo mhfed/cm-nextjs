@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
 
-export default function TopBarPromotion() {
+export function TopBarPromotion() {
   return (
     <div className="bg-gray-700 text-white">
       <Container size='full' className="py-1">
@@ -11,5 +11,5 @@ export default function TopBarPromotion() {
         </div>
       </Container>
     </div>
-  );            
-}
+  )
+} 
