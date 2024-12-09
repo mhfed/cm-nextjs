@@ -5,12 +5,16 @@ import Link from 'next/link';
 import { SearchBar } from './search-bar';
 import { UserMenu } from './user-menu';
 import { CartMini } from '@components/layout/cart-mini';
+import { MobileNav } from '@components/layout/mobile-nav';
 
 export function Navbar() {
   return (
     <nav className='bg-black shadow-sm sticky top-0 z-50'>
       <Container size='full'>
         <div className='flex items-center justify-between'>
+          <div className='lg:hidden'>
+            <MobileNav />
+          </div>
           <Link href='/' className='flex-shrink-0'>
             <Image
               src='https://www.coolmate.me/images/logo-coolmate-new.svg'

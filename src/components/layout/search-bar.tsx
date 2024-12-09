@@ -2,6 +2,7 @@
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { SearchIcon, X } from 'lucide-react';
+import Image from 'next/image';
 import { useRef, useState } from 'react';
 
 export function SearchBar() {
@@ -49,7 +50,7 @@ export function SearchBar() {
   };
 
   return (
-    <>
+    <div className='hidden lg:block'>
       <div className='relative cursor-pointer' onClick={() => setOpen(true)}>
         <Input
           ref={inputRef}
@@ -116,10 +117,12 @@ export function SearchBar() {
                   {recentProducts.map((product, index) => (
                     <div key={index} className='space-y-2'>
                       <div className='aspect-square bg-gray-50 rounded-lg overflow-hidden'>
-                        <img
+                        <Image
                           src={product.image}
                           alt={product.name}
                           className='w-full h-full object-cover'
+                          width={100}
+                          height={100}
                         />
                       </div>
                       <p className='text-sm line-clamp-2'>{product.name}</p>
@@ -131,6 +134,6 @@ export function SearchBar() {
           </div>
         </DialogContent>
       </Dialog>
-    </>
+    </div>
   );
 }
