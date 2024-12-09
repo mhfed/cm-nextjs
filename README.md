@@ -1,47 +1,61 @@
-<<<<<<< README.md
-# Coolmate CMS Frontend V2025
+# Coolmate E-commerce Frontend 2025
 
-Clone của website CM được xây dựng bằng Next.js và Docker.
+Version 2025 của website coolmate.me được xây dựng với Next.js 14, TypeScript và Tailwind CSS cùng các công nghệ mới nhất...
 
-## Yêu cầu hệ thống
+## 🚀 Tính năng chính
 
+- 🛍️ **E-commerce Features**
+
+  - Quản lý giỏ hàng với Zustand
+  - Product Gallery với Embla Carousel
+  - Responsive Navigation Menu
+  - User Authentication
+  - Rewards & Membership System
+  - Tìm kiếm sản phẩm
+  - Filters và Sorting
+  - Checkout Process
+  - ... updating
+
+- 💅 **UI/UX**
+  - Shadcn/ui Components
+  - Tailwind CSS cho styling
+  - Responsive Design (Desktop/Mobile)
+  - Custom Carousel Components
+  - Loading States & Animations
+  - Toast Notifications
+  - Form Validation
+  - ... updating
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Components:** Shadcn/ui
+- **State Management:** Zustand
+- **Carousel:** Embla Carousel
+- **Icons:** Lucide Icons
+- **Container:** Docker
+- **Form Handling:** React Hook Form
+- **Validation:** Zod
+- **HTTP Client:** Axios
+- **Testing:** Jest & React Testing Library
+
+## 📦 Cài đặt
+
+### Yêu cầu hệ thống
+
+- Node.js 20.x
 - Docker và Docker Compose
-- Node.js 20.x (nếu muốn chạy không qua Docker)
+- Git
 
-## Chạy ứng dụng với Docker
+### Sử dụng Docker (Recommended)
 
-1. **Clone project**
 ```bash
+# Clone repository
 git clone <repository-url>
-cd coolmate-nextjs
-```
+cd coolmate-frontend
 
-2. **Khởi động với Docker**
-```bash
-# Build và chạy container
-docker-compose up --build
-
-# Hoặc chạy ở chế độ detached
-docker-compose up -d
-```
-
-Ứng dụng sẽ chạy tại [http://localhost:3000](http://localhost:3000)
-
-3. **Các lệnh Docker hữu ích**
-```bash
-# Xem logs
-docker-compose logs -f
-
-# Dừng container
-docker-compose down
-
-# Xóa container và volume
-docker-compose down -v
-```
-
-## Docker Commands
-
-```bash
 # Development Mode
 docker compose --profile dev up --build
 
@@ -53,149 +67,233 @@ docker compose --profile dev up -d  # cho development
 docker compose --profile prod up -d # cho production
 
 # Xem logs
-docker compose --profile dev logs -f  # cho development
-docker compose --profile prod logs -f # cho production
+docker compose --profile dev logs -f
+docker compose --profile prod logs -f
 
 # Dừng containers
 docker compose --profile dev down
 docker compose --profile prod down
 ```
 
-## Chạy ứng dụng không dùng Docker
+### Local Development
 
 ```bash
-# Cài đặt dependencies
+# Install dependencies
 npm install
 
-# Chạy development server
+# Run development server
 npm run dev
 
-# Build và chạy production
+# Build for production
 npm run build
+npm start
+
+# Run tests
+npm test
+
+# Run linting
+npm run lint
+```
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── (auth)/            # Authentication routes
+│   ├── product/           # Product pages
+│   ├── cart/              # Cart pages
+│   └── layout.tsx         # Root layout
+├── components/
+│   ├── extension/         # Extended components (Carousel etc.)
+│   ├── layout/           # Layout components
+│   │   ├── navigation-menu.tsx
+│   │   ├── mobile-nav.tsx
+│   │   ├── cart-mini.tsx
+│   │   └── user-menu.tsx
+│   ├── shared/           # Shared components
+│   └── ui/               # UI components (shadcn)
+├── lib/                   # Utilities
+├── store/                # State management
+│   ├── cart-store.ts
+│   └── user-store.ts
+├── types/                # TypeScript types
+└── styles/               # Global styles
+```
+
+## 🧩 Key Components
+
+### Navigation
+
+- **MainNav**: Desktop navigation menu với mega menu
+- **MobileNav**: Mobile navigation với drawer
+- **CartMini**: Mini cart drawer
+- **UserMenu**: User profile và authentication menu
+
+### Product
+
+- **ProductGallery**: Image gallery với thumbnails
+- **ProductCarousel**: Carousel cho related products
+- **ProductCard**: Card hiển thị sản phẩm
+
+### Cart
+
+- **CartMini**: Mini cart preview
+- **CartSummary**: Cart totals và checkout
+- **CartList**: List of cart items
+
+## 📝 Coding Guidelines
+
+### Quy tắc đặt tên
+
+- Tên Components/Functions/Hooks/Variables: camelCase (VD: function userProfile)
+- Đối với Constants: UPPER_SNAKE_CASE (VD: AUTH_TYPES)
+- Tên Files/Folders: kebab-case (VD: auth-service.ts)
+
+### TypeScript
+
+- Sử dụng strict mode
+- ❗ Luôn định nghĩa type/interface cho props, state và API responses
+- ✅ Export types/interfaces trong file riêng (types/)
+- ➡️ Sử dụng type inference khi có thể
+- ⚠️ Tránh sử dụng any, trừ khi quá bế tắc
+
+### Components
+
+- Sử dụng functional components
+- Mỗi component một file, một file không nên dài quá 300 dòng
+- Props interface đặt ở đầu file cho mỗi component
+- Tách logic phức tạp vào custom hooks
+- Mỗi component một file riêng
+
+### Styling
+
+- Luôn luôn sử dụng <strong>tailwindcss</strong> cho styles, không style inline hay các cách khác, sẽ khó maintain và tăng bundle size
+- Tuân thủ design system
+- Responsive first approach (mobile first) ưu tiên làm mobile trước
+- Tái sử dụng utility classes
+
+### State Management
+
+- Zustand cho global state
+- React Query cho server state
+- Local state cho UI-only state
+
+## 🔧 Development Tools
+
+### VSCode Extensions
+
+- ESLint
+- Prettier
+- Tailwind CSS IntelliSense
+- PostCSS Language Support
+- GitLens
+- Error Lens
+
+### Chrome Extensions
+
+- React Developer Tools
+- Redux DevTools
+- Responsive Viewer
+- Web Vitals
+
+## 🚀 Deployment
+
+### Production Build
+
+```bash
+# Build production
+npm run build
+
+# Start production server
 npm start
 ```
 
-## Cấu trúc project
+### Docker Production
 
-```
-.
-├── src/
-│   ├── app/          # Next.js app router
-│   ├── components/   # React components
-│   └── ...
-├── public/           # Static files
-├── Dockerfile        # Docker configuration
-├── docker-compose.yml
-└── ...
+```bash
+docker compose --profile prod up --build
 ```
 
-## Công nghệ sử dụng
+## 👥 Team Workflow
 
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Docker](https://www.docker.com/)
+### Git Workflow (dùng git rebase không dùng git merge)
 
-## Tác giả
+1. Tạo nhánh tính năng từ develop
+2. Commit thay đổi theo quy ước conventional commits
+3. Tạo Pull Request vào develop
+4. Review code
+5. Merge vào develop
+6. Triển khai lên môi trường staging
+7. Merge vào main để đưa lên production
 
-- Tên tác giả
-- Email/Liên hệ
+### Code Review Process
 
-## License
+- Yêu cầu review trước khi merge
+- Tuân thủ template Pull Request
+- Kiểm tra ảnh hưởng về hiệu năng
+- Xác nhận thiết kế responsive
+- Kiểm tra các trường hợp đặc biệt
 
-MIT
-=======
-# Coolmate CMS Frontend V2025
+### Communication
 
+- Họp standup hàng ngày
+- Họp đồng bộ kỹ thuật hàng tuần
+- Thảo luận review code trong các PR
+- Tài liệu kỹ thuật trong Notion
 
+## 🧪 Testing
 
-## Getting started
+### Unit Testing
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+```bash
+# Run all tests
+npm test
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+# Run with coverage
+npm test -- --coverage
 
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
+# Watch mode
+npm test -- --watch
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/coolmateme/coolmate-cms-frontend-v2025.git
-git branch -M main
-git push -uf origin main
+
+### E2E Testing (chưa cần ngay, cần nghiên cứu thêm)
+
+```bash
+# Run Cypress tests
+npm run cypress
+
+# Open Cypress UI
+npm run cypress:open
 ```
 
-## Integrate with your tools
+## 📈 Performance Monitoring (sử dụng self hosting)
 
-- [ ] [Set up project integrations](https://gitlab.com/coolmateme/coolmate-cms-frontend-v2025/-/settings/integrations)
+- Google Analytics
+- Error tracking với Sentry
+- Performance monitoring với Web Vitals
 
-## Collaborate with your team
+## 📚 Documentation
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Chi tiết về components và API có thể được tìm thấy trong:
 
-## Test and Deploy
+- `/docs` - Technical documentation
+- Storybook - Component documentation
 
-Use the built-in continuous integration in GitLab.
+## 🤝 Contributing
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+1. Fork repository
+2. Tạo nhánh tính năng (`git checkout -b feature/tinh-nang-moi`)
+3. Commit thay đổi (`git commit -m 'feat: Thêm tính năng mới'`)
+4. Đẩy lên nhánh (`git push origin feature/tinh-nang-moi`)
+5. Tạo Merge Request
 
-***
+## 📄 License
 
-# Editing this README
+MIT License - see LICENSE.md
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## 👏 Credits
 
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
->>>>>>> README.md
+- Design System: [Shadcn/ui](https://ui.shadcn.com/)
+- Icons: [Lucide Icons](https://lucide.dev/)
+- Carousel: [Embla Carousel](https://www.embla-carousel.com/)
