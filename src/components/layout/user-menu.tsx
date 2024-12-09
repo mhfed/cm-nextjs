@@ -3,8 +3,35 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ChevronRight, User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import {
+  ResponsiveModal,
+  ResponsiveModalContent,
+  ResponsiveModalTrigger,
+} from '@/components/ui/responsive-modal';
+import { useRouter } from 'next/navigation';
+import { LoginForm } from '@components/auth/login-form';
 
 export function UserMenu() {
+  // Fake login state - replace with real auth later
+  const isLoggedIn = true;
+  const router = useRouter();
+
+  if (!isLoggedIn) {
+    return (
+      <ResponsiveModal>
+        <ResponsiveModalTrigger asChild>
+          <button>
+            <User className='w-6 h-6 text-white' />
+          </button>
+        </ResponsiveModalTrigger>
+        <ResponsiveModalContent className=''>
+          <div className='text-xl font-semibold mb-4'>Đăng nhập</div>
+          <LoginForm onSuccess={() => router.back()} />
+        </ResponsiveModalContent>
+      </ResponsiveModal>
+    );
+  }
+
   return (
     <Sheet>
       <SheetTrigger asChild>
