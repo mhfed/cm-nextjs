@@ -1,45 +1,41 @@
-"use client"
+import {
+  Carousel,
+  CarouselMainContainer,
+  CarouselThumbsContainer,
+  SliderMainItem,
+  SliderThumbItem,
+} from '@/components/extension/carousel';
 
-import { useState } from "react"
-import Image from "next/image"
-import { cn } from "@/lib/utils"
-
-interface ProductGalleryProps {
-  images: string[]
-}
-
-export function ProductGallery({ images }: ProductGalleryProps) {
-  const [selectedImage, setSelectedImage] = useState(0)
-
+const ProductGallery = () => {
   return (
-    <div className="grid gap-4">
-      <div className="aspect-square relative">
-        <Image
-          src={images[selectedImage]}
-          alt="Product image"
-          fill
-          className="object-cover rounded-lg"
-        />
+    <Carousel orientation='vertical' className='flex items-center gap-2'>
+      <div className='relative basis-3/4 '>
+        <CarouselMainContainer className='h-60'>
+          {Array.from({ length: 10 }).map((_, index) => (
+            <SliderMainItem
+              key={index}
+              className='border border-muted flex items-center justify-center h-52 rounded-md'
+            >
+              Slide {index + 1}
+            </SliderMainItem>
+          ))}
+        </CarouselMainContainer>
       </div>
-      <div className="grid grid-cols-4 gap-4">
-        {images.map((image, i) => (
-          <button
-            key={i}
-            onClick={() => setSelectedImage(i)}
-            className={cn(
-              "aspect-square relative rounded-lg overflow-hidden",
-              selectedImage === i && "ring-2 ring-primary"
-            )}
+      <CarouselThumbsContainer className='h-60 basis-1/4'>
+        {Array.from({ length: 10 }).map((_, index) => (
+          <SliderThumbItem
+            key={index}
+            index={index}
+            className='rounded-md bg-transparent'
           >
-            <Image
-              src={image}
-              alt={`Product image ${i + 1}`}
-              fill
-              className="object-cover"
-            />
-          </button>
+            <span className='border border-muted flex items-center justify-center h-full w-full rounded-md cursor-pointer bg-background'>
+              Slide {index + 1}
+            </span>
+          </SliderThumbItem>
         ))}
-      </div>
-    </div>
-  )
-} 
+      </CarouselThumbsContainer>
+    </Carousel>
+  );
+};
+
+export default ProductGallery;

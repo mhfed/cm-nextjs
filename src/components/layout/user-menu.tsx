@@ -7,7 +7,7 @@ import {
   ResponsiveModal,
   ResponsiveModalContent,
   ResponsiveModalTrigger,
-} from '@/components/ui/responsive-modal';
+} from '@/components/extension/responsive-modal';
 import { useRouter } from 'next/navigation';
 import { LoginForm } from '@components/auth/login-form';
 
