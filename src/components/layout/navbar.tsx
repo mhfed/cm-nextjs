@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SearchBar } from './search-bar';
 import { UserMenu } from './user-menu';
+import { CartMini } from '@components/layout/cart-mini';
 
 export function Navbar() {
   return (
@@ -24,7 +25,10 @@ export function Navbar() {
 
           <div className='flex items-center gap-4'>
             <SearchBar />
-            <UserMenu />
+            <div className='flex items-center gap-4'>
+              <UserMenu />
+              <CartMini />
+            </div>
           </div>
         </div>
       </Container>
