@@ -2,6 +2,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
+import Image from 'next/image';
 
 export function CartList() {
   return (
@@ -15,10 +16,12 @@ export function CartList() {
       <div className='space-y-4'>
         {/* Repeat this for each item */}
         <div className='flex gap-4 border-b pb-4'>
-          <img
+          <Image
             src='/product-image.jpg'
             alt='Product'
             className='w-24 h-24 object-cover rounded'
+            width={100}
+            height={100}
           />
           <div className='flex-1'>
             <h3 className='font-medium'>Tên sản phẩm</h3>
