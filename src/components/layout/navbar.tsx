@@ -9,7 +9,7 @@ import { MobileNav } from '@components/layout/mobile-nav';
 
 export function Navbar() {
   return (
-    <nav className='bg-black shadow-sm sticky top-0 z-50'>
+    <nav className='bg-black shadow-sm'>
       <Container size='full'>
         <div className='flex items-center justify-between'>
           <div className='lg:hidden'>
