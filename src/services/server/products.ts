@@ -15,6 +15,11 @@ export const productService = {
         next: { revalidate: 3600 }, // Cache 1 hour
       }
     );
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch products');
+    }
+
     return response.json() as Promise<Product[]>;
   },
 

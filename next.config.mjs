@@ -32,9 +32,9 @@ const nextConfig = {
   devIndicators: {
     buildActivityPosition: 'bottom-right', // if not using, set to false
   },
-  env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
-  },
+  // env: {
+  //   NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+  // },
   eslint: {
     // Warning: cho phép build thành công ngay cả khi có lỗi eslint
     ignoreDuringBuilds: true,
@@ -48,7 +48,6 @@ const nextConfig = {
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
     return `${year}_${month}_${day}_${hours}_${minutes}_${seconds}`;
-
   },
 };
 

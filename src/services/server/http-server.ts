@@ -1,4 +1,4 @@
-import { headers } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 
 export interface ApiResponse<T = unknown> {
   data: T;
@@ -27,6 +27,11 @@ class HttpServer {
       cookie: headersList.get('cookie') || '',
       'user-agent': headersList.get('user-agent') || '',
       'x-forwarded-for': headersList.get('x-forwarded-for') || '',
+
+      TokenApi: process.env.API_TOKEN || '',
+      FrontendRequest: 'true',
+      token: cookies().get('token')?.value || '',
+      Authorization: `Bearer ${cookies().get('token')?.value || ''}`,
     };
   }
 

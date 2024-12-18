@@ -1,7 +1,13 @@
+import { validateEnv } from '@/lib/env';
 import type { Metadata } from 'next';
 // import localFont from "next/font/local";
-import './globals.css';
 import { Toaster } from 'sonner';
+import './globals.css';
+
+// Sử dụng trong app/layout.tsx
+if (process.env.NODE_ENV !== 'production') {
+  validateEnv();
+}
 
 // const geistSans = localFont({
 //   src: "../assets/fonts/GeistVF.woff",

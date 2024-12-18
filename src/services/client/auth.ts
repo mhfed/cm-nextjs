@@ -1,4 +1,4 @@
-import { clientHttp } from '@/services/client/http';
+import { clientHttp } from '@/services/client/http-client';
 import type { LoginDto, RegisterDto, AuthResponse } from '@/types/auth';
 
 export const authService = {
