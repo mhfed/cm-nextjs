@@ -23,7 +23,7 @@ export function MainNav() {
                 <NavigationMenuLink
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    'text-red-600 font-medium'
+                    'font-medium text-red-600'
                   )}
                 >
                   OUTLET -50%
@@ -33,14 +33,14 @@ export function MainNav() {
 
             {Object.entries(navConfig).map(([category, content]) => (
               <NavigationMenuItem key={category} className='h-20'>
-                <NavigationMenuTrigger className='text-white hover:text-gray-300 h-full'>
+                <NavigationMenuTrigger className='h-full text-white hover:text-gray-300'>
                   {category}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className='mt-0'>
-                  <div className='grid w-[800px] grid-cols-4 gap-3 p-4 bg-white'>
+                  <div className='grid w-[800px] grid-cols-4 gap-3 bg-white p-4'>
                     {content.sections.map((section) => (
                       <div key={section.title}>
-                        <h4 className='font-medium text-sm text-gray-500 mb-2'>
+                        <h4 className='mb-2 text-sm font-medium text-gray-500'>
                           {section.title}
                         </h4>
                         <ul className='space-y-2'>
@@ -69,9 +69,9 @@ export function MainNav() {
                             height={100}
                             src={item.imageSrc}
                             alt={item.title}
-                            className='w-full h-48 object-cover'
+                            className='h-48 w-full object-cover'
                           />
-                          <span className='absolute bottom-2 left-2 text-white font-medium'>
+                          <span className='absolute bottom-2 left-2 font-medium text-white'>
                             {item.title}
                           </span>
                         </Link>

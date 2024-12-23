@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 type CartItem = {
   id: string;
@@ -49,7 +49,7 @@ export const useCart = create(
       clearCart: () => set({ items: [] }),
     }),
     {
-      name: "cart-storage",
+      name: 'cart-storage',
     }
   )
-); 
+);

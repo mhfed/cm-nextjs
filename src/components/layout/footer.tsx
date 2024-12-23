@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 export function Footer() {
   return (
-    <footer className='bg-black text-white pt-12 pb-6'>
+    <footer className='bg-black pb-6 pt-12 text-white'>
       <Container>
-        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12'>
+        <div className='mb-12 grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-5'>
           {/* Column 1 */}
           <div className='space-y-4'>
             <h4 className='font-medium uppercase'>COOLMATE</h4>

@@ -92,7 +92,7 @@ export function ProductCard({ product }: ProductCardProps) {
               <button
                 key={variant.colorCode}
                 className={cn(
-                  'h-4 w-4 rounded-full border z-10',
+                  'z-10 h-4 w-4 rounded-full border',
                   selectedVariant === index &&
                     'ring-2 ring-primary ring-offset-2'
                 )}

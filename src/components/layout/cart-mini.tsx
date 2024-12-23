@@ -61,8 +61,8 @@ export function CartMini() {
       <PopoverTrigger asChild>
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <Link href='/cart' className='relative'>
-            <ShoppingCart className='w-6 h-6 text-white' />
-            <span className='absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center'>
+            <ShoppingCart className='h-6 w-6 text-white' />
+            <span className='absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs text-white'>
               {cartItems.length}
             </span>
           </Link>
@@ -75,21 +75,21 @@ export function CartMini() {
         onMouseLeave={handleMouseLeave}
       >
         <div className='p-4'>
-          <div className='flex items-center justify-between mb-4'>
+          <div className='mb-4 flex items-center justify-between'>
             <h3 className='font-medium'>{cartItems.length} sản phẩm</h3>
             <Link href='/cart' className='text-blue-600 hover:underline'>
               Xem tất cả
             </Link>
           </div>
 
-          <div className='space-y-4 max-h-[460px] overflow-y-auto scrollbar-thin'>
+          <div className='scrollbar-thin max-h-[460px] space-y-4 overflow-y-auto'>
             {cartItems.map((item) => (
               <div key={item.id} className='flex gap-4'>
-                <div className='w-24 h-24 bg-gray-100 rounded-lg overflow-hidden'>
+                <div className='h-24 w-24 overflow-hidden rounded-lg bg-gray-100'>
                   <Image
                     src={item.image}
                     alt={item.name}
-                    className='w-full h-full object-cover'
+                    className='h-full w-full object-cover'
                     width={100}
                     height={100}
                   />
@@ -97,9 +97,9 @@ export function CartMini() {
                 <div className='flex-1'>
                   <div className='flex justify-between'>
                     <div>
-                      <h4 className='text-sm line-clamp-2'>{item.name}</h4>
-                      <p className='text-sm text-gray-500 mt-1'>{item.size}</p>
-                      <div className='flex items-center gap-2 mt-1'>
+                      <h4 className='line-clamp-2 text-sm'>{item.name}</h4>
+                      <p className='mt-1 text-sm text-gray-500'>{item.size}</p>
+                      <div className='mt-1 flex items-center gap-2'>
                         <span className='font-medium'>
                           {item.price.toLocaleString()}đ
                         </span>
@@ -107,10 +107,10 @@ export function CartMini() {
                           {item.originalPrice.toLocaleString()}đ
                         </span>
                       </div>
-                      <p className='text-sm mt-1'>x{item.quantity}</p>
+                      <p className='mt-1 text-sm'>x{item.quantity}</p>
                     </div>
-                    <button className='text-gray-400 hover:text-gray-600 h-4'>
-                      <X className='w-4 h-4' />
+                    <button className='h-4 text-gray-400 hover:text-gray-600'>
+                      <X className='h-4 w-4' />
                     </button>
                   </div>
                 </div>
