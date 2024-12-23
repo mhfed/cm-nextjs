@@ -2,6 +2,13 @@
 # ignore all .env files except .env
 .env*
 
+# ignore lock files
+*.lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+
 # dependencies
 /node_modules
 /.pnp

@@ -9,13 +9,13 @@ export default function Error({
 }) {
   console.log('🚀 ~ error:', error);
   return (
-    <div className='flex flex-col items-center justify-center min-h-[400px]'>
-      <h2 className='text-xl font-semibold mb-4'>
+    <div className='flex min-h-[400px] flex-col items-center justify-center'>
+      <h2 className='mb-4 text-xl font-semibold'>
         Đã có lỗi xảy ra khi tải sản phẩm
       </h2>
       <button
         onClick={reset}
-        className='px-4 py-2 bg-primary text-white rounded-md'
+        className='rounded-md bg-primary px-4 py-2 text-white'
       >
         Thử lại
       </button>

@@ -15,7 +15,7 @@ import { CartFooter } from './_components/cart-footer';
 
 export default function CartPage() {
   return (
-    <Container className='py-8 overflow-y-auto pb-32' size='full'>
+    <Container className='overflow-y-auto py-8 pb-32' size='full'>
       <div className='px-4 sm:px-6 lg:px-8'>
         <h1 className='text-3xl font-bold tracking-tight text-gray-900'>
           Giỏ hàng của bạn
@@ -25,7 +25,7 @@ export default function CartPage() {
           {/* Thông tin đặt hàng */}
           <div className='lg:col-span-7'>
             <Card className='p-6'>
-              <h2 className='text-xl font-semibold mb-6'>Thông tin đặt hàng</h2>
+              <h2 className='mb-6 text-xl font-semibold'>Thông tin đặt hàng</h2>
 
               <div className='space-y-4'>
                 <div className='flex gap-4'>
