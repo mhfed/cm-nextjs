@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { navConfig } from '@components/layout/nav-config';
-import { Button } from '@components/ui';
+import { navConfig } from '@/components/layout/nav-config';
+import { Button } from '@/components/ui';
 
 // Sử dụng lại categories từ navigation-menu.tsx
 

@@ -1,4 +1,4 @@
-import { Container } from '@components/ui/container';
+import { Container } from '@/components/ui/container';
 import { CartSummary } from './_components/cart-summary';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';

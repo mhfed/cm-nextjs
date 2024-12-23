@@ -9,7 +9,7 @@ import {
   ResponsiveModalTrigger,
 } from '@/components/extension/responsive-modal';
 import { useRouter } from 'next/navigation';
-import { LoginForm } from '@components/auth/login-form';
+import { LoginForm } from '@/components/auth/login-form';
 
 export function UserMenu() {
   // Fake login state - replace with real auth later

@@ -8,7 +8,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
-import { navConfig } from '@components/layout/nav-config';
+import { navConfig } from '@/components/layout/nav-config';
 import Image from 'next/image';
 import Link from 'next/link';
 
