@@ -24,6 +24,12 @@ export const metadata: Metadata = {
   title: 'Coolmate - Thời trang nam',
   description: 'Coolmate - Nâng tầm trải nghiệm mua sắm thời trang nam',
   keywords: 'thời trang nam, coolmate, áo nam, quần nam',
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://coolmate.me'
+  ),
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://coolmate.me',
+  },
 };
 
 export default function RootLayout({

@@ -10,7 +10,7 @@ export default function LoginPage() {
   return (
     <Dialog open onOpenChange={() => router.back()}>
       <DialogContent className='sm:max-w-[425px]'>
-        <div className='mb-4 text-xl font-semibold'>Đăng nhập</div>
+        <div className='mb-4 text-xl font-semibold'>Đăng nhập 1</div>
         <LoginForm onSuccess={() => router.back()} />
       </DialogContent>
     </Dialog>
