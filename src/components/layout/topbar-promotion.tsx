@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { Container } from '@/components/ui/container';
+import Link from 'next/link'
+import { Container } from '@/components/ui/container'
 
 export function TopBarPromotion() {
   return (
@@ -13,5 +13,5 @@ export function TopBarPromotion() {
         </div>
       </Container>
     </div>
-  );
+  )
 }

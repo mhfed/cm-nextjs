@@ -1,17 +1,17 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { Menu, X, ChevronRight } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { navConfig } from '@/components/layout/nav-config';
-import { Button } from '@/components/ui';
+import { useState } from 'react'
+import Link from 'next/link'
+import { Menu, X, ChevronRight } from 'lucide-react'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { navConfig } from '@/components/layout/nav-config'
+import { Button } from '@/components/ui'
 
 // Sử dụng lại categories từ navigation-menu.tsx
 
 export function MobileNav() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -61,5 +61,5 @@ export function MobileNav() {
         </ScrollArea>
       </SheetContent>
     </Sheet>
-  );
+  )
 }

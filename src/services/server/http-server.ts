@@ -1,25 +1,25 @@
-import { cookies, headers } from 'next/headers';
+import { cookies, headers } from 'next/headers'
 
 export interface ApiResponse<T = unknown> {
-  data: T;
-  message?: string;
-  status: number;
+  data: T
+  message?: string
+  status: number
   meta?: {
-    page?: number;
-    limit?: number;
-    total?: number;
-  };
+    page?: number
+    limit?: number
+    total?: number
+  }
 }
 
 class HttpServer {
-  private baseURL: string;
+  private baseURL: string
 
   constructor() {
-    this.baseURL = process.env.API_URL || '';
+    this.baseURL = process.env.API_URL || ''
   }
 
   private async getHeaders(): Promise<HeadersInit> {
-    const headersList = headers();
+    const headersList = headers()
     return {
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -32,12 +32,12 @@ class HttpServer {
       FrontendRequest: 'true',
       token: cookies().get('token')?.value || '',
       Authorization: `Bearer ${cookies().get('token')?.value || ''}`,
-    };
+    }
   }
 
   private async request<T>(url: string, options: RequestInit = {}): Promise<T> {
-    const fullUrl = this.baseURL + url;
-    const headers = await this.getHeaders();
+    const fullUrl = this.baseURL + url
+    const headers = await this.getHeaders()
 
     const response = await fetch(fullUrl, {
       ...options,
@@ -47,21 +47,21 @@ class HttpServer {
       },
       cache: options.cache || 'force-cache',
       credentials: 'include',
-    });
+    })
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`HTTP error! status: ${response.status}`)
     }
 
-    const data = await response.json();
-    return data.data as T;
+    const data = await response.json()
+    return data.data as T
   }
 
   async get<T>(
     url: string,
     options: Omit<RequestInit, 'body' | 'method'> = {}
   ): Promise<T> {
-    return this.request<T>(url, { ...options, method: 'GET' });
+    return this.request<T>(url, { ...options, method: 'GET' })
   }
 
   async post<T, D = unknown>(
@@ -73,7 +73,7 @@ class HttpServer {
       ...options,
       method: 'POST',
       body: data ? JSON.stringify(data) : undefined,
-    });
+    })
   }
 
   async put<T, D = unknown>(
@@ -85,7 +85,7 @@ class HttpServer {
       ...options,
       method: 'PUT',
       body: data ? JSON.stringify(data) : undefined,
-    });
+    })
   }
 
   async patch<T, D = unknown>(
@@ -97,15 +97,15 @@ class HttpServer {
       ...options,
       method: 'PATCH',
       body: data ? JSON.stringify(data) : undefined,
-    });
+    })
   }
 
   async delete<T>(
     url: string,
     options: Omit<RequestInit, 'body' | 'method'> = {}
   ): Promise<T> {
-    return this.request<T>(url, { ...options, method: 'DELETE' });
+    return this.request<T>(url, { ...options, method: 'DELETE' })
   }
 }
 
-export const httpServer = new HttpServer();
+export const httpServer = new HttpServer()

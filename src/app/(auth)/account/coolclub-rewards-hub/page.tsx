@@ -1,3 +1,3 @@
 export default function CoolclubRewardsHubPage() {
-  return <div>Coolclub Rewards Hub</div>;
+  return <div>Coolclub Rewards Hub</div>
 }

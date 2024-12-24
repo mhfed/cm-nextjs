@@ -1,16 +1,16 @@
+import { ProductCard } from '@/components/shared/product-card'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/components/ui/carousel';
-import { ProductCard } from '@/components/shared/product-card';
-import { productService } from '@/services/server/products';
+} from '@/components/ui/carousel'
+import { productService } from '@/services/server/products'
 
 export async function ProductCarousel() {
   // Server Component - fetch data
-  const products = await productService.getProducts({ limit: 10 });
+  const products = await productService.getProducts({ limit: 10 })
 
   return (
     <div className='relative'>
@@ -35,5 +35,5 @@ export async function ProductCarousel() {
         <CarouselNext className='absolute right-0 top-1/2 -translate-y-1/2' />
       </Carousel>
     </div>
-  );
+  )
 }

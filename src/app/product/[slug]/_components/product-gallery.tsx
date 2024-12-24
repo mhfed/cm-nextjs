@@ -4,7 +4,7 @@ import {
   CarouselThumbsContainer,
   SliderMainItem,
   SliderThumbItem,
-} from '@/components/extension/carousel';
+} from '@/components/extension/carousel'
 
 const ProductGallery = () => {
   return (
@@ -35,7 +35,7 @@ const ProductGallery = () => {
         ))}
       </CarouselThumbsContainer>
     </Carousel>
-  );
-};
+  )
+}
 
-export default ProductGallery;
+export default ProductGallery

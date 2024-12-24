@@ -1,27 +1,27 @@
-'use client';
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import { ShoppingCart, X } from 'lucide-react';
+'use client'
+import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
+import { ShoppingCart, X } from 'lucide-react'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover';
-import Image from 'next/image';
+} from '@/components/ui/popover'
+import Image from 'next/image'
 
 interface CartItem {
-  id: string;
-  name: string;
-  image: string;
-  price: number;
-  originalPrice: number;
-  size: string;
-  quantity: number;
+  id: string
+  name: string
+  image: string
+  price: number
+  originalPrice: number
+  size: string
+  quantity: number
 }
 
 export function CartMini() {
-  const [isOpen, setIsOpen] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const [isOpen, setIsOpen] = useState(false)
+  const timeoutRef = useRef<NodeJS.Timeout>()
 
   // Mock data - replace with real data later
   const cartItems: CartItem[] = Array.from({ length: 10 }, (_, index) => ({
@@ -33,28 +33,28 @@ export function CartMini() {
     originalPrice: 790000,
     size: '3XL',
     quantity: 1,
-  }));
+  }))
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
+      clearTimeout(timeoutRef.current)
     }
-    setIsOpen(true);
-  };
+    setIsOpen(true)
+  }
 
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
-      setIsOpen(false);
-    }, 300); // Delay before closing
-  };
+      setIsOpen(false)
+    }, 300) // Delay before closing
+  }
 
   useEffect(() => {
     return () => {
       if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
+        clearTimeout(timeoutRef.current)
       }
-    };
-  }, []);
+    }
+  }, [])
 
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
@@ -120,5 +120,5 @@ export function CartMini() {
         </div>
       </PopoverContent>
     </Popover>
-  );
+  )
 }

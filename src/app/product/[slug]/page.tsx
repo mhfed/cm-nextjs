@@ -1,12 +1,12 @@
-import { Container } from '@/components/ui/container';
-import ProductGallery from './_components/product-gallery';
+import { Container } from '@/components/ui/container'
+import ProductGallery from './_components/product-gallery'
 
 export default async function ProductPage({
   params,
 }: {
-  params: { id: string };
+  params: { id: string }
 }) {
-  console.log(params);
+  console.log(params)
   // const product = await getProduct(params.id)
 
   return (
@@ -17,5 +17,5 @@ export default async function ProductPage({
       </div>
       {/* <RelatedProducts categoryId={product.categoryId} /> */}
     </Container>
-  );
+  )
 }

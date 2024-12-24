@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'
 
 export function CartFooter() {
   return (
@@ -14,5 +14,5 @@ export function CartFooter() {
         <Button size='lg'>ĐẶT HÀNG</Button>
       </div>
     </div>
-  );
+  )
 }

@@ -1,20 +1,20 @@
-'use client';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { ChevronRight, User } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+'use client'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { ChevronRight, User } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 import {
   ResponsiveModal,
   ResponsiveModalContent,
   ResponsiveModalTrigger,
-} from '@/components/extension/responsive-modal';
-import { useRouter } from 'next/navigation';
-import { LoginForm } from '@/components/auth/login-form';
+} from '@/components/extension/responsive-modal'
+import { useRouter } from 'next/navigation'
+import { LoginForm } from '@/components/auth/login-form'
 
 export function UserMenu() {
   // Fake login state - replace with real auth later
-  const isLoggedIn = true;
-  const router = useRouter();
+  const isLoggedIn = true
+  const router = useRouter()
 
   if (!isLoggedIn) {
     return (
@@ -29,7 +29,7 @@ export function UserMenu() {
           <LoginForm onSuccess={() => router.back()} />
         </ResponsiveModalContent>
       </ResponsiveModal>
-    );
+    )
   }
 
   return (
@@ -162,5 +162,5 @@ export function UserMenu() {
         </div>
       </SheetContent>
     </Sheet>
-  );
+  )
 }

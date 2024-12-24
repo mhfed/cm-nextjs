@@ -1,14 +1,14 @@
-'use client';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { SearchIcon, X } from 'lucide-react';
-import Image from 'next/image';
-import { useRef, useState } from 'react';
+'use client'
+import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
+import { SearchIcon, X } from 'lucide-react'
+import Image from 'next/image'
+import { useRef, useState } from 'react'
 
 export function SearchBar() {
-  const [open, setOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState('');
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [open, setOpen] = useState(false)
+  const [searchValue, setSearchValue] = useState('')
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const popularCategories = [
     'Tập gym',
@@ -22,7 +22,7 @@ export function SearchBar() {
     'Quần',
     'Polo',
     'Áo thun',
-  ];
+  ]
 
   const recentProducts = [
     {
@@ -30,24 +30,24 @@ export function SearchBar() {
       image: '/path-to-image-1.jpg',
     },
     // ... thêm các sản phẩm khác
-  ];
+  ]
 
   const handleCategoryClick = (category: string) => {
-    setSearchValue(category);
+    setSearchValue(category)
     // Focus input after setting value
     if (inputRef.current) {
-      inputRef.current.focus();
+      inputRef.current.focus()
     }
-  };
+  }
 
   const handleOverlayClick = (e: React.MouseEvent) => {
     // Check if click is in the overlay area (100px on either side)
-    const clickX = e.clientX;
-    const windowWidth = window.innerWidth;
+    const clickX = e.clientX
+    const windowWidth = window.innerWidth
     if (clickX < 100 || clickX > windowWidth - 100) {
-      setOpen(false);
+      setOpen(false)
     }
-  };
+  }
 
   return (
     <div className='hidden lg:block'>
@@ -135,5 +135,5 @@ export function SearchBar() {
         </DialogContent>
       </Dialog>
     </div>
-  );
+  )
 }

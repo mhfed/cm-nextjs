@@ -1,25 +1,21 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import { Card, CardContent } from '../ui/card';
-import { Badge } from '../ui/badge';
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from '../ui/hover-card';
-import { cn } from '@/lib/utils';
-import { Product } from '@/types/product';
-import Image from 'next/image';
+import { useState } from 'react'
+import { Card, CardContent } from '../ui/card'
+import { Badge } from '../ui/badge'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '../ui/hover-card'
+import { cn } from '@/lib/utils'
+import { Product } from '@/types/product'
+import Image from 'next/image'
 
 interface ProductCardProps {
-  product: Product;
+  product: Product
 }
 
 export function ProductCard({ product }: ProductCardProps) {
   // const [selectedVariant, setSelectedVariant] = useState(0);
   // const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  return <h1>ProductCard {product.display_name}</h1>;
+  return <h1>ProductCard {product.display_name}</h1>
 
   return (
     <Card className='group relative'>
@@ -42,7 +38,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 className='h-full w-full object-cover transition-all hover:scale-105'
                 onMouseEnter={() => {
                   if (product.variants[selectedVariant].images.length > 1) {
-                    setCurrentImageIndex(1);
+                    setCurrentImageIndex(1)
                   }
                 }}
                 onMouseLeave={() => setCurrentImageIndex(0)}
@@ -111,5 +107,5 @@ export function ProductCard({ product }: ProductCardProps) {
         )}
       </CardContent>
     </Card>
-  );
+  )
 }

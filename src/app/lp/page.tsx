@@ -1,3 +1,3 @@
 export default function LpPage() {
-  return <div>Lp</div>;
+  return <div>Lp</div>
 }

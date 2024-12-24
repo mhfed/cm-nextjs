@@ -1,17 +1,17 @@
-import { Container } from '@/components/ui/container';
-import { CartSummary } from './_components/cart-summary';
-import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Container } from '@/components/ui/container'
+import { CartSummary } from './_components/cart-summary'
+import { Card } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { CartList } from './_components/cart-list';
-import { CartFooter } from './_components/cart-footer';
+} from '@/components/ui/select'
+import { CartList } from './_components/cart-list'
+import { CartFooter } from './_components/cart-footer'
 
 export default function CartPage() {
   return (
@@ -97,5 +97,5 @@ export default function CartPage() {
         <CartFooter />
       </div>
     </Container>
-  );
+  )
 }

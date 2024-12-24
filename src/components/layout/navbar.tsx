@@ -1,11 +1,11 @@
-import { Container } from '@/components/ui/container';
-import { MainNav } from '@/components/layout/navigation-menu';
-import Image from 'next/image';
-import Link from 'next/link';
-import { SearchBar } from './search-bar';
-import { UserMenu } from './user-menu';
-import { CartMini } from '@/components/layout/cart-mini';
-import { MobileNav } from '@/components/layout/mobile-nav';
+import { Container } from '@/components/ui/container'
+import { MainNav } from '@/components/layout/navigation-menu'
+import Image from 'next/image'
+import Link from 'next/link'
+import { SearchBar } from './search-bar'
+import { UserMenu } from './user-menu'
+import { CartMini } from '@/components/layout/cart-mini'
+import { MobileNav } from '@/components/layout/mobile-nav'
 
 export function Navbar() {
   return (
@@ -37,5 +37,5 @@ export function Navbar() {
         </div>
       </Container>
     </nav>
-  );
+  )
 }

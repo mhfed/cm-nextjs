@@ -1,8 +1,8 @@
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Select } from '@/components/ui/select';
-import Image from 'next/image';
+import { Card } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Select } from '@/components/ui/select'
+import Image from 'next/image'
 
 export function CartList() {
   return (
@@ -39,5 +39,5 @@ export function CartList() {
         </div>
       </div>
     </Card>
-  );
+  )
 }

@@ -1,12 +1,12 @@
-import type { Product, ProductQueryParams } from '@/types/product';
+import type { Product, ProductQueryParams } from '@/types/product'
 
 export const productService = {
   getProducts: async (params?: ProductQueryParams) => {
-    const searchParams = new URLSearchParams();
+    const searchParams = new URLSearchParams()
     if (params) {
       Object.entries(params).forEach(([key, value]) => {
-        if (value) searchParams.append(key, String(value));
-      });
+        if (value) searchParams.append(key, String(value))
+      })
     }
 
     const response = await fetch(
@@ -14,20 +14,20 @@ export const productService = {
       {
         next: { revalidate: 3600 }, // Cache 1 hour
       }
-    );
+    )
 
     if (!response.ok) {
-      throw new Error('Failed to fetch products');
+      throw new Error('Failed to fetch products')
     }
 
-    return response.json() as Promise<Product[]>;
+    return response.json() as Promise<Product[]>
   },
 
   getProductById: async (id: string) => {
     const response = await fetch(`${process.env.API_URL}/products/${id}`, {
       next: { revalidate: 3600 },
-    });
-    if (!response.ok) return null;
-    return response.json() as Promise<Product>;
+    })
+    if (!response.ok) return null
+    return response.json() as Promise<Product>
   },
-};
+}

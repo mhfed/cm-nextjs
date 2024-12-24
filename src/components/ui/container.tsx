@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
 
 const containerVariants = cva(
   // Base styles
@@ -51,14 +51,14 @@ const containerVariants = cva(
       },
     ],
   }
-);
+)
 
 interface ContainerProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof containerVariants> {
-  as?: React.ElementType;
-  fluid?: boolean;
-  children?: React.ReactNode;
+  as?: React.ElementType
+  fluid?: boolean
+  children?: React.ReactNode
 }
 
 export function Container({
@@ -87,13 +87,13 @@ export function Container({
     >
       {children}
     </Component>
-  );
+  )
 }
 
 // Type-safe prop values
 export type ContainerSize = NonNullable<
   VariantProps<typeof containerVariants>['size']
->;
+>
 export type ContainerPadding = NonNullable<
   VariantProps<typeof containerVariants>['padding']
->;
+>

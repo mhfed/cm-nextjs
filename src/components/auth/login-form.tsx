@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
@@ -8,16 +8,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
 
 const formSchema = z.object({
   email: z.string().email('Email không hợp lệ'),
   password: z.string().min(6, 'Mật khẩu phải có ít nhất 6 ký tự'),
-});
+})
 
 export function LoginForm({ onSuccess }: { onSuccess: () => void }) {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -26,15 +26,15 @@ export function LoginForm({ onSuccess }: { onSuccess: () => void }) {
       email: '',
       password: '',
     },
-  });
+  })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       // TODO: Implement login logic here
-      console.log(values);
-      onSuccess();
+      console.log(values)
+      onSuccess()
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
 
@@ -72,5 +72,5 @@ export function LoginForm({ onSuccess }: { onSuccess: () => void }) {
         </Button>
       </form>
     </Form>
-  );
+  )
 }

@@ -1,13 +1,13 @@
-import React from 'react';
-import { Input } from '@/components/ui/input';
-import { cn } from '@/lib/utils';
-import OtpInput, { OTPInputProps } from 'react-otp-input';
+import React from 'react'
+import { Input } from '@/components/ui/input'
+import { cn } from '@/lib/utils'
+import OtpInput, { OTPInputProps } from 'react-otp-input'
 
-type OtpOptions = Omit<OTPInputProps, 'renderInput'>;
+type OtpOptions = Omit<OTPInputProps, 'renderInput'>
 
 type OtpStyledInputProps = {
-  className?: string;
-} & OtpOptions;
+  className?: string
+} & OtpOptions
 
 /**
  * Otp input Docs: {@link: https://shadcn-extension.vercel.app/docs/otp-input}
@@ -30,5 +30,5 @@ export const OtpStyledInput = ({
         props.renderSeparator ? 'gap-1' : 'gap-x-3 gap-y-2'
       }`}
     />
-  );
-};
+  )
+}

@@ -1,12 +1,12 @@
-import { validateEnv } from '@/lib/env';
-import type { Metadata } from 'next';
+import { validateEnv } from '@/lib/env'
+import type { Metadata } from 'next'
 // import localFont from "next/font/local";
-import { Toaster } from 'sonner';
-import './globals.css';
+import { Toaster } from 'sonner'
+import './globals.css'
 
 // Sử dụng trong app/layout.tsx
 if (process.env.NODE_ENV !== 'production') {
-  validateEnv();
+  validateEnv()
 }
 
 // const geistSans = localFont({
@@ -30,12 +30,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://coolmate.me',
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang='en'>
@@ -44,5 +44,5 @@ export default function RootLayout({
         <Toaster />
       </body>
     </html>
-  );
+  )
 }

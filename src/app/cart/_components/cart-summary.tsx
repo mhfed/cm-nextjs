@@ -1,18 +1,18 @@
-'use client';
+'use client'
 
-import { useCart } from '@/hooks/use-cart';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
+import { useCart } from '@/hooks/use-cart'
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 
 export function CartSummary() {
-  const { items } = useCart();
+  const { items } = useCart()
 
   const subtotal = items.reduce((total, item) => {
-    return total + item.price * item.quantity;
-  }, 0);
+    return total + item.price * item.quantity
+  }, 0)
 
-  const shipping = 30000; // Phí ship cố định
-  const total = subtotal + shipping;
+  const shipping = 30000 // Phí ship cố định
+  const total = subtotal + shipping
 
   return (
     <div>
@@ -54,5 +54,5 @@ export function CartSummary() {
 
       <Button className='mt-6 w-full'>Tiến hành thanh toán</Button>
     </div>
-  );
+  )
 }

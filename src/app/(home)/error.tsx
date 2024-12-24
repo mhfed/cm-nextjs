@@ -1,13 +1,13 @@
-'use client';
+'use client'
 
 export default function Error({
   error,
   reset,
 }: {
-  error: Error;
-  reset: () => void;
+  error: Error
+  reset: () => void
 }) {
-  console.log('🚀 ~ error:', error);
+  console.log('🚀 ~ error:', error)
   return (
     <div className='flex min-h-[400px] flex-col items-center justify-center'>
       <h2 className='mb-4 text-xl font-semibold'>
@@ -20,5 +20,5 @@ export default function Error({
         Thử lại
       </button>
     </div>
-  );
+  )
 }

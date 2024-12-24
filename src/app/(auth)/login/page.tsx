@@ -1,11 +1,11 @@
-'use client';
+'use client'
 
-import { LoginForm } from '@/components/auth/login-form';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { useRouter } from 'next/navigation';
+import { LoginForm } from '@/components/auth/login-form'
+import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { useRouter } from 'next/navigation'
 
 export default function LoginPage() {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <Dialog open onOpenChange={() => router.back()}>
@@ -14,5 +14,5 @@ export default function LoginPage() {
         <LoginForm onSuccess={() => router.back()} />
       </DialogContent>
     </Dialog>
-  );
+  )
 }
