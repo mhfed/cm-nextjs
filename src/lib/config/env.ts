@@ -1,4 +1,4 @@
-const requiredServerEnvs = ['API_URL', 'JWT_SECRET'] as const
+const requiredServerEnvs = ['API_URL', 'API_TOKEN'] as const
 const requiredClientEnvs = ['NEXT_PUBLIC_API_URL'] as const
 
 export function validateEnv() {
