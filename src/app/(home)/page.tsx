@@ -8,7 +8,7 @@ export default function HomePage() {
       <HomeHero />
 
       <Container size='full' className='py-10'>
-        <ProductCarousel />
+        <ProductCarousel collectionAlias='san-pham-moi' />
       </Container>
     </>
   )

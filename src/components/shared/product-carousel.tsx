@@ -8,9 +8,28 @@ import {
 } from '@/components/ui/carousel'
 import { productService } from '@/services/server/products.server.service'
 
-export async function ProductCarousel() {
-  // Server Component - fetch data
-  const products = await productService.getProducts({ limit: 10 })
+interface ProductCarouselProps {
+  collectionAlias: string // Bắt buộc phải có collection alias
+  limit?: number
+}
+
+export async function ProductCarousel({
+  collectionAlias,
+  limit = 10,
+}: ProductCarouselProps) {
+  // Fetch data từ collection
+  const { products } = await productService.getProductsByCollection(
+    collectionAlias,
+    {
+      limit,
+      random_focus: true,
+      flatten: true,
+    }
+  )
+
+  if (!products?.data?.length) {
+    return null
+  }
 
   return (
     <div className='relative'>
@@ -22,7 +41,7 @@ export async function ProductCarousel() {
         className='w-full'
       >
         <CarouselContent>
-          {products.map((product) => (
+          {products.data.map((product) => (
             <CarouselItem
               key={product.id}
               className='md:basis-1/2 lg:basis-1/5'

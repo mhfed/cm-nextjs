@@ -38,6 +38,7 @@ class HttpServer {
 
   private async request<T>(url: string, options: RequestInit = {}): Promise<T> {
     const fullUrl = this.baseURL + url
+    console.log('🚀 ~ HttpServer ~ fullUrl:', fullUrl)
     const headers = await this.getHeaders()
 
     const response = await fetch(fullUrl, {
@@ -55,7 +56,7 @@ class HttpServer {
     }
 
     const data = await response.json()
-    return data.data as T
+    return data as T
   }
 
   async get<T>(

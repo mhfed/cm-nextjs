@@ -16,10 +16,16 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'media3.coolmate.me',
-        pathname: '/cdn-cgi/**',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media-manager.coolmate.me',
+        pathname: '/**',
       },
     ],
     minimumCacheTTL: 60,
+    domains: ['media3.coolmate.me', 'media-manager.coolmate.me'],
   },
   swcMinify: true,
   compress: true,

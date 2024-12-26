@@ -10,7 +10,7 @@ declare global {
       NEXT_PUBLIC_MEDIA_URL: string
       NEXT_PUBLIC_MEDIA_CDN_URL: string
       NEXT_PUBLIC_MEDIA_MANAGER_URL: string
-
+      NEXT_PUBLIC_MEDIA_CLOUDFLARE: string
       // Feature Flags
       NEXT_PUBLIC_DEBUG: string
       NEXT_PUBLIC_ENABLE_CART: string
