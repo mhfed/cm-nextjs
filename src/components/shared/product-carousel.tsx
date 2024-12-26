@@ -6,7 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import { productService } from '@/services/server/products'
+import { productService } from '@/services/server/products.server.service'
 
 export async function ProductCarousel() {
   // Server Component - fetch data

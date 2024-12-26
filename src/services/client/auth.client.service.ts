@@ -1,5 +1,5 @@
-import { clientHttp } from '@/services/client/http-client'
-import type { LoginDto, RegisterDto, AuthResponse } from '@/types/auth'
+import { clientHttp } from '@/lib/http/client'
+import type { AuthResponse, LoginDto, RegisterDto } from '@/types/auth'
 
 export const authService = {
   login: async (data: LoginDto) => {

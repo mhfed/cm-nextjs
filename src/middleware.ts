@@ -1,5 +1,5 @@
+import { authService } from '@/services/server/auth.server.service'
 import { NextRequest, NextResponse } from 'next/server'
-import { authService } from '@/services/server/auth'
 
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get('token')

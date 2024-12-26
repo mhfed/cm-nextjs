@@ -21,7 +21,7 @@ module.exports = {
   rules: {
     'type-enum': [2, 'always', COMMIT_TYPES],
     'subject-min-length': [2, 'always', 30],
-    'header-max-length': [2, 'always', 120],
+    'header-max-length': [2, 'always', 200],
   },
   plugins: [
     {
@@ -68,11 +68,11 @@ module.exports = {
         },
         'header-max-length': (parsed) => {
           const { header } = parsed
-          if (header && header.length > 120) {
+          if (header && header.length > 200) {
             return [
               false,
               `${error('✖ Tiêu đề commit quá dài!')}\n
-              ${info('Yêu cầu:')} Không quá 120 ký tự (hiện tại: ${header.length} ký tự)\n
+              ${info('Yêu cầu:')} Không quá 200 ký tự (hiện tại: ${header.length} ký tự)\n
               `,
             ]
           }

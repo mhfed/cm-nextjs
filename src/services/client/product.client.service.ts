@@ -1,5 +1,5 @@
+import { clientHttp } from '@/lib/http/client'
 import { PaginatedResponse } from '@/types/api'
-import { clientHttp } from '@/services/client/http-client'
 import type { Product } from '@/types/product'
 
 export const productService = {

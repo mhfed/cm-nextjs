@@ -1,4 +1,4 @@
-import { validateEnv } from '@/lib/env'
+import { validateEnv } from '@/lib/config/env'
 import type { Metadata } from 'next'
 // import localFont from "next/font/local";
 import { Toaster } from 'sonner'

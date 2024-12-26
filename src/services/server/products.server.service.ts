@@ -22,12 +22,4 @@ export const productService = {
 
     return response.json() as Promise<Product[]>
   },
-
-  getProductById: async (id: string) => {
-    const response = await fetch(`${process.env.API_URL}/products/${id}`, {
-      next: { revalidate: 3600 },
-    })
-    if (!response.ok) return null
-    return response.json() as Promise<Product>
-  },
 }
