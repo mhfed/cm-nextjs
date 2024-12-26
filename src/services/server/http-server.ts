@@ -1,3 +1,4 @@
+// Gọi sang api backend
 import { cookies, headers } from 'next/headers'
 
 export interface ApiResponse<T = unknown> {
