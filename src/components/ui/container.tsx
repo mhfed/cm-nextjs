@@ -14,7 +14,7 @@ const containerVariants = cva(
         lg: 'max-w-screen-lg', // 1024px
         xl: 'max-w-screen-xl', // 1280px
         '2xl': 'max-w-screen-2xl', // 1536px
-        full: 'max-w-full',
+        full: 'max-w-full px-2 sm:px-4 md:px-4 lg:px-8 xl:px-12 2xl:px-16',
         default: 'max-w-7xl', // 1280px
       },
       // Padding variants
