@@ -3,14 +3,14 @@
 import { Button } from '@/components/ui/button'
 import { useRouter, useSearchParams } from 'next/navigation'
 
-export function TestButton() {
+export function FilterButton() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const collectionAlias = searchParams.get('collectionAlias')
+  const collectionSeoAlias = searchParams.get('featured')
 
   const handleClick = (alias: string) => {
     const params = new URLSearchParams(searchParams)
-    params.set('collectionAlias', alias)
+    params.set('featured', alias)
     router.replace(`/?${params.toString()}`, {
       scroll: false,
     })
@@ -18,13 +18,15 @@ export function TestButton() {
   return (
     <div className='flex justify-start gap-4'>
       <Button
-        variant={collectionAlias === 'san-pham-moi' ? 'default' : 'outline'}
+        size='lg'
+        variant={collectionSeoAlias === 'san-pham-moi' ? 'default' : 'outline'}
         onClick={() => handleClick('san-pham-moi')}
       >
         Sản phẩm mới
       </Button>
       <Button
-        variant={collectionAlias === 'ban-chay-nhat' ? 'default' : 'outline'}
+        size='lg'
+        variant={collectionSeoAlias === 'ban-chay-nhat' ? 'default' : 'outline'}
         onClick={() => handleClick('ban-chay-nhat')}
       >
         Bán chạy nhất

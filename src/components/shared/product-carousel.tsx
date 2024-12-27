@@ -11,7 +11,7 @@ import { productService } from '@/services/server/products.server.service'
 import { Suspense } from 'react'
 
 interface ProductCarouselProps {
-  collectionAlias: string // Bắt buộc phải có collection alias
+  collectionSeoAlias: string // Bắt buộc phải có collection alias
   limit?: number
 }
 
@@ -40,22 +40,25 @@ function ProductCarouselSkeleton() {
 }
 
 export function ProductCarousel({
-  collectionAlias,
+  collectionSeoAlias,
   limit = 10,
 }: ProductCarouselProps) {
   return (
-    <Suspense key={collectionAlias} fallback={<ProductCarouselSkeleton />}>
-      <ProductCarouselContent collectionAlias={collectionAlias} limit={limit} />
+    <Suspense key={collectionSeoAlias} fallback={<ProductCarouselSkeleton />}>
+      <ProductCarouselContent
+        collectionSeoAlias={collectionSeoAlias}
+        limit={limit}
+      />
     </Suspense>
   )
 }
 
 async function ProductCarouselContent({
-  collectionAlias,
+  collectionSeoAlias,
   limit,
 }: ProductCarouselProps) {
   const { products } = await productService.getProductsByCollection(
-    collectionAlias,
+    collectionSeoAlias,
     {
       limit,
       random_focus: true,

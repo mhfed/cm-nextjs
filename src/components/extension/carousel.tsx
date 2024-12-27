@@ -6,19 +6,19 @@
 
 'use client'
 
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import { EmblaOptionsType } from 'embla-carousel'
+import useEmblaCarousel from 'embla-carousel-react'
+import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 import React, {
+  createContext,
   forwardRef,
   useCallback,
   useContext,
   useEffect,
   useState,
 } from 'react'
-import { Button } from '@/components/ui/button'
-import { EmblaOptionsType } from 'embla-carousel'
-import useEmblaCarousel from 'embla-carousel-react'
-import { ChevronRightIcon, ChevronLeftIcon } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { createContext } from 'react'
 
 type CarouselContextProps = {
   carouselOptions?: EmblaOptionsType
@@ -204,7 +204,7 @@ const Carousel = forwardRef<
           ref={ref}
           onKeyDownCapture={handleKeyDown}
           className={cn(
-            'relative grid w-full gap-2 focus:outline-none',
+            'relative grid h-full w-full gap-2 focus:outline-none',
             className
           )}
           dir={direction}
@@ -425,12 +425,12 @@ CarouselNext.displayName = 'CarouselNext'
 
 export {
   Carousel,
+  CarouselIndicator,
   CarouselMainContainer,
+  CarouselNext,
+  CarouselPrevious,
   CarouselThumbsContainer,
   SliderMainItem,
   SliderThumbItem,
-  CarouselIndicator,
-  CarouselPrevious,
-  CarouselNext,
   useCarousel,
 }

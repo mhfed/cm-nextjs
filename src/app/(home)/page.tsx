@@ -1,26 +1,18 @@
-import { HomeHero } from '@/app/(home)/_components/home-hero'
-import { TestButton } from '@/app/(home)/_components/test-button'
-import { ProductCarousel } from '@/components/shared/product-carousel'
-import { Container } from '@/components/ui/container'
+import { FeaturedProducts } from '@/app/(home)/_components/featured-products/'
+import { HeroBanner } from '@/app/(home)/_components/hero-banner'
 
-type SearchParams = {
-  collectionAlias: string
+type HomePageProps = {
+  searchParams: {
+    featured: string
+  }
 }
-export default function HomePage({
-  searchParams,
-}: {
-  searchParams: SearchParams
-}) {
+export default function HomePage({ searchParams }: HomePageProps) {
+  const collectionSeoAlias = searchParams['featured'] || 'san-pham-moi'
   return (
     <>
-      <HomeHero />
+      <HeroBanner />
 
-      <Container size='full' className='space-y-4 py-10'>
-        <TestButton />
-        <ProductCarousel
-          collectionAlias={searchParams.collectionAlias || 'san-pham-moi'}
-        />
-      </Container>
+      <FeaturedProducts collectionSeoAlias={collectionSeoAlias} />
     </>
   )
 }

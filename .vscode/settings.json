@@ -6,8 +6,8 @@
 
   // Tự động fix lỗi và sắp xếp imports khi save
   "editor.codeActionsOnSave": {
-    "source.fixAll": true, // Fix tất cả các lỗi có thể
-    "source.organizeImports": true // Sắp xếp lại thứ tự imports
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
   },
 
   // Cấu hình tab và khoảng trắng

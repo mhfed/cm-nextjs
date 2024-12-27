@@ -1,4 +1,5 @@
 // Gọi sang api backend
+import chalk from 'chalk'
 import { cookies, headers } from 'next/headers'
 
 export interface ApiResponse<T = unknown> {
@@ -38,7 +39,9 @@ class HttpServer {
 
   private async request<T>(url: string, options: RequestInit = {}): Promise<T> {
     const fullUrl = this.baseURL + url
-    console.log('🚀 ~ HttpServer ~ fullUrl:', fullUrl)
+    if (process.env.NODE_ENV === 'development') {
+      console.log(chalk.yellowBright('🚀 ~ HttpServer ~ fullUrl:', fullUrl))
+    }
     const headers = await this.getHeaders()
 
     const response = await fetch(fullUrl, {
