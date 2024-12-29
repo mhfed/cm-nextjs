@@ -19,7 +19,6 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const [selectedVariant, setSelectedVariant] = useState(0)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   // Kiểm tra xem product có hợp lệ không
   if (!product?.display_name) {
@@ -27,10 +26,9 @@ export function ProductCard({ product }: ProductCardProps) {
   }
 
   const currentVariant = product.variants[selectedVariant]
-  const currentImage = product.images[currentImageIndex]
 
   return (
-    <Card className='group relative'>
+    <Card className='relative'>
       <CardContent className='p-0'>
         {/* Free Shipping Badge */}
         {product.regular_price >= 200000 && (
@@ -41,20 +39,24 @@ export function ProductCard({ product }: ProductCardProps) {
 
         <HoverCard openDelay={0} closeDelay={0}>
           <HoverCardTrigger asChild>
-            <div className='relative aspect-square overflow-hidden'>
-              {currentImage && (
+            <div className='group relative aspect-square overflow-hidden'>
+              {/* Ảnh chính */}
+              <Image
+                src={`https://media3.coolmate.me${product.images[0].src}`}
+                alt={product.display_name}
+                className='object-cover'
+                fill
+                sizes='(max-width: 768px) 50vw, 25vw'
+              />
+
+              {/* Ảnh hover */}
+              {product.images[1] && (
                 <Image
-                  src={`https://media3.coolmate.me${currentImage.src}`}
-                  alt={product.display_name}
-                  className='h-full w-full object-cover transition-all hover:scale-105'
-                  onMouseEnter={() => {
-                    if (product.images.length > 1) {
-                      setCurrentImageIndex(1)
-                    }
-                  }}
-                  onMouseLeave={() => setCurrentImageIndex(0)}
-                  width={400}
-                  height={400}
+                  src={`https://media3.coolmate.me${product.images[1].src}`}
+                  alt={`${product.display_name} hover`}
+                  className='absolute inset-0 object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100'
+                  fill
+                  sizes='(max-width: 768px) 50vw, 25vw'
                 />
               )}
             </div>
