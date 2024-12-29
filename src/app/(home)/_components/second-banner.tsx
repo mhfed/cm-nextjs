@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export function SecondBanner() {
   return (
-    <Container size='full' className='relative mb-10'>
+    <Container size='full' className='relative my-10'>
       <Link href='/collections/fall-winter'>
         <picture>
           <source
