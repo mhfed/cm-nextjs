@@ -8,7 +8,7 @@ import {
   CarouselThumbsContainer,
   SliderMainItem,
 } from '@/components/extension/carousel'
-import { ImageHelper } from '@/lib/helpers/image-helper'
+import { ImageHelper } from '@/lib/helpers/image.helper'
 import Autoplay from 'embla-carousel-autoplay'
 import Image from 'next/image'
 import Link from 'next/link'

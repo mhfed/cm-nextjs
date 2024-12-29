@@ -1,7 +1,7 @@
 import { Banner } from '@/app/(home)/_components/banner-with-product/banner'
 import { ProductCarousel } from '@/components/shared/product-carousel'
 import { Container } from '@/components/ui/container'
-import { ImageHelper } from '@/lib/helpers/image-helper'
+import { ImageHelper } from '@/lib/helpers/image.helper'
 import Link from 'next/link'
 
 const BANNER_SECTIONS = [

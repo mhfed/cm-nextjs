@@ -37,11 +37,29 @@ export type Product = {
   created_at: string
   addon_note_collection: string
   pricing_policy: PricingPolicy[]
-  flash_sale: null
+  flash_sale: FlashSale | null
   campaign_sale: CampaignSale | null
   deal_sale: null
-  coolclub_sale: null
+  coolclub_sale: CoolClubSale | null
   icon_thumbnail: ProductImage
+}
+// TODO: sửa lại type
+export type FlashSale = {
+  _id: string
+  product_id: string
+  regular_price: string
+  from_collection: boolean
+  max: number
+  variants: Record<string, CampaignSaleVariant[]>
+  max_regular_price: string
+  flash_sale_id: string
+}
+// TODO: sửa lại type
+export type CoolClubSale = {
+  _id: string
+  product_id: string
+  coolclub_price: string
+  variants: Record<string, CampaignSaleVariant[]>
 }
 
 export type ProductImage = {

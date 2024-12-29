@@ -1,4 +1,3 @@
-// TODO fix
 'use client'
 
 import { Badge } from '@/components/ui/badge'
@@ -8,6 +7,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from '@/components/ui/hover-card'
+import { productHelper } from '@/lib/helpers/product.helper'
 import { cn } from '@/lib/utils'
 import { Product } from '@/types/product'
 import Image from 'next/image'
@@ -20,12 +20,16 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const [selectedVariant, setSelectedVariant] = useState(0)
 
-  // Kiểm tra xem product có hợp lệ không
-  if (!product?.display_name) {
-    return null
-  }
+  if (!product?.display_name) return null
 
-  const currentVariant = product.variants[selectedVariant]
+  const currentVariant = productHelper.getCurrentVariant(
+    product,
+    selectedVariant
+  )
+  const prices = productHelper.getPrices(product)
+  const tags = productHelper.getTags(product)
+  const review = productHelper.getReviewData(product)
+  const coolClub = productHelper.getCoolClubData(product)
 
   return (
     <Card className='relative'>
@@ -37,10 +41,17 @@ export function ProductCard({ product }: ProductCardProps) {
           </Badge>
         )}
 
+        {/* Product Tags */}
+        {tags.map((tag) => (
+          <Badge key={tag} className='absolute left-2 top-2'>
+            {tag}
+          </Badge>
+        ))}
+
         <HoverCard openDelay={0} closeDelay={0}>
           <HoverCardTrigger asChild>
             <div className='group relative aspect-square overflow-hidden'>
-              {/* Ảnh chính */}
+              {/* Main Image */}
               <Image
                 src={`https://media3.coolmate.me${product.images[0].src}`}
                 alt={product.display_name}
@@ -49,7 +60,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 sizes='(max-width: 768px) 50vw, 25vw'
               />
 
-              {/* Ảnh hover */}
+              {/* Hover Image */}
               {product.images[1] && (
                 <Image
                   src={`https://media3.coolmate.me${product.images[1].src}`}
@@ -61,6 +72,8 @@ export function ProductCard({ product }: ProductCardProps) {
               )}
             </div>
           </HoverCardTrigger>
+
+          {/* Color Options */}
           <HoverCardContent className='w-fit'>
             <div className='flex gap-2'>
               {currentVariant?.option1 && (
@@ -78,22 +91,40 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Product Info */}
         <div className='p-4'>
           <h3 className='font-medium'>{product.display_name}</h3>
+
+          {/* Prices */}
           <div className='mt-1 flex items-center justify-between'>
-            <p className='font-semibold'>
-              {new Intl.NumberFormat('vi-VN', {
-                style: 'currency',
-                currency: 'VND',
-              }).format(product.price)}
-            </p>
-            {product.review && (
+            <div className='flex items-center gap-2'>
+              {prices.compare_price > prices.regular_price && (
+                <del className='text-sm text-muted-foreground'>
+                  {productHelper.formatPrice(prices.compare_price)}
+                </del>
+              )}
+              <span className='font-semibold'>
+                {productHelper.formatPrice(prices.regular_price)}
+              </span>
+              {prices.percent > 0 && (
+                <Badge variant='destructive'>-{prices.percent}%</Badge>
+              )}
+            </div>
+
+            {/* Reviews */}
+            {review && (
               <div className='flex items-center gap-1'>
-                <span>{product.review.avg}</span>
+                <span>{review.rating}</span>
                 <span className='text-sm text-muted-foreground'>
-                  ({product.review.count})
+                  ({review.count})
                 </span>
               </div>
             )}
           </div>
+
+          {/* CoolClub Price */}
+          {coolClub?.isEnabled && (
+            <div className='mt-2 text-sm text-muted-foreground'>
+              Giá CoolClub: {productHelper.formatPrice(coolClub.price)}
+            </div>
+          )}
 
           {/* Color variants */}
           <div className='mt-3 flex gap-2'>

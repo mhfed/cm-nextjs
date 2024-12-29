@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card'
 import { Container } from '@/components/ui/container'
-import { ImageHelper } from '@/lib/helpers/image-helper'
+import { ImageHelper } from '@/lib/helpers/image.helper'
 import Image from 'next/image'
 import Link from 'next/link'
 
