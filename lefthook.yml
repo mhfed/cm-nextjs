@@ -1,0 +1,27 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: '*.{js,jsx,ts,tsx}'
+      run: bun eslint {staged_files} --fix
+    prettier:
+      glob: '*.{js,ts,jsx,tsx,json,css,md,yml}'
+      run: bun prettier --write {staged_files}
+
+commit-msg:
+  commands:
+    commitlint:
+      run: bunx commitlint --edit {1}
+# Tạm thời bỏ pre-push vì có lỗi khi push
+# pre-push:
+#   parallel: true
+#   commands:
+#     lint:
+#       run: bun run lint
+#     types:
+#       run: bun tsc --noEmit

@@ -1,3 +1,3 @@
 export default function CoolcashPointPage() {
-  return <div>Coolcash Point</div>;
+  return <div>Coolcash Point</div>
 }

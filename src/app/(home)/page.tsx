@@ -1,15 +1,30 @@
-import { HomeHero } from '@/app/(home)/_components/home-hero';
-import { ProductCarousel } from '@components/shared/product-carousel';
-import { Container } from '@components/ui/container';
+import { BannerWithProducts } from '@/app/(home)/_components/banner-with-product'
+import { BoostedCollections } from '@/app/(home)/_components/boosted-collections'
+import { FeaturedProducts } from '@/app/(home)/_components/featured-products'
+import { HeroBanner } from '@/app/(home)/_components/hero-banner'
+import { SecondBanner } from '@/app/(home)/_components/second-banner'
+import { CoolClubAwareness } from './_components/coolclub-awareness'
 
-export default function HomePage() {
+type HomePageProps = {
+  searchParams: {
+    featured: string
+  }
+}
+export default function HomePage({ searchParams }: HomePageProps) {
+  const collectionSeoAlias = searchParams['featured'] || 'san-pham-moi'
   return (
     <>
-      <HomeHero />
+      <HeroBanner />
 
-      <Container size='full' className='py-10'>
-        <ProductCarousel />
-      </Container>
+      <FeaturedProducts collectionSeoAlias={collectionSeoAlias} />
+
+      <BannerWithProducts />
+
+      <SecondBanner />
+
+      <BoostedCollections />
+
+      <CoolClubAwareness />
     </>
-  );
+  )
 }

@@ -1,14 +1,14 @@
-import { Header } from '@components/layout/header';
+import { Header } from '@/components/layout/header'
 
 export default function CartLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <>
       <Header />
       {children}
     </>
-  );
+  )
 }

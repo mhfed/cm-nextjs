@@ -1,12 +1,12 @@
-'use client';
-import { Navbar } from '@components/layout/navbar';
-import { TopBar } from '@components/layout/topbar';
-import { TopBarPromotion } from '@components/layout/topbar-promotion';
-import { useScrollDirection } from '@/hooks/use-scroll-direction';
-import { cn } from '@/lib/utils';
+'use client'
+import { Navbar } from '@/components/layout/navbar'
+import { TopBar } from '@/components/layout/topbar'
+import { TopBarPromotion } from '@/components/layout/topbar-promotion'
+import { useScrollDirection } from '@/hooks/use-scroll-direction'
+import { cn } from '@/lib/utils'
 
 export function Header() {
-  const isScrollingDown = useScrollDirection();
+  const isScrollingDown = useScrollDirection()
 
   return (
     <header
@@ -19,5 +19,5 @@ export function Header() {
       <TopBarPromotion />
       <Navbar />
     </header>
-  );
+  )
 }

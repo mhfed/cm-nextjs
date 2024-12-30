@@ -1,3 +1,3 @@
 export default function SpotlightPage() {
-  return <div>Spotlight</div>;
+  return <div>Spotlight</div>
 }

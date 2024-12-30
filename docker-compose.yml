@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   web-dev:
-    profiles: ["dev"]
-    build: 
+    profiles: ['dev']
+    build:
       context: .
       target: dev
     ports:
-      - "3000:3000"
+      - '3000:3000'
     volumes:
       - .:/app
       - /app/node_modules
@@ -17,12 +17,12 @@ services:
       - PORT=3000
 
   web-prod:
-    profiles: ["prod"]
-    build: 
+    profiles: ['prod']
+    build:
       context: .
       target: prod
     ports:
-      - "4000:4000"
+      - '4000:4000'
     environment:
       - NODE_ENV=production
       - PORT=4000

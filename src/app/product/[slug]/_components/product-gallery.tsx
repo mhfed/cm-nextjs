@@ -4,17 +4,17 @@ import {
   CarouselThumbsContainer,
   SliderMainItem,
   SliderThumbItem,
-} from '@/components/extension/carousel';
+} from '@/components/extension/carousel'
 
 const ProductGallery = () => {
   return (
     <Carousel orientation='vertical' className='flex items-center gap-2'>
-      <div className='relative basis-3/4 '>
+      <div className='relative basis-3/4'>
         <CarouselMainContainer className='h-60'>
           {Array.from({ length: 10 }).map((_, index) => (
             <SliderMainItem
               key={index}
-              className='border border-muted flex items-center justify-center h-52 rounded-md'
+              className='flex h-52 items-center justify-center rounded-md border border-muted'
             >
               Slide {index + 1}
             </SliderMainItem>
@@ -28,14 +28,14 @@ const ProductGallery = () => {
             index={index}
             className='rounded-md bg-transparent'
           >
-            <span className='border border-muted flex items-center justify-center h-full w-full rounded-md cursor-pointer bg-background'>
+            <span className='flex h-full w-full cursor-pointer items-center justify-center rounded-md border border-muted bg-background'>
               Slide {index + 1}
             </span>
           </SliderThumbItem>
         ))}
       </CarouselThumbsContainer>
     </Carousel>
-  );
-};
+  )
+}
 
-export default ProductGallery;
+export default ProductGallery

@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss';
-import animate from 'tailwindcss-animate';
+import type { Config } from 'tailwindcss'
+import animate from 'tailwindcss-animate'
 
 const config: Config = {
   darkMode: ['class'],
@@ -7,9 +7,16 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // Font mặc định là Pangea
+        sans: ['var(--font-pangea)', 'sans-serif'],
+        // Font cho heading là CriteriaCF
+        criteria: ['var(--font-criteria)', 'sans-serif'],
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -98,5 +105,5 @@ const config: Config = {
     },
   },
   plugins: [animate],
-};
-export default config;
+}
+export default config

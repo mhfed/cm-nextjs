@@ -1,3 +1,3 @@
 export default function UserAddressPage() {
-  return <div>User Address</div>;
+  return <div>User Address</div>
 }

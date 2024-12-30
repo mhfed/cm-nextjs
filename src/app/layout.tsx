@@ -1,36 +1,38 @@
-import type { Metadata } from 'next';
+import { validateEnv } from '@/lib/config/env'
+import type { Metadata } from 'next'
 // import localFont from "next/font/local";
-import './globals.css';
-import { Toaster } from 'sonner';
+import { Toaster } from 'sonner'
+import './globals.css'
+import { pangea, criteriaCF } from '@/lib/utils/font'
 
-// const geistSans = localFont({
-//   src: "../assets/fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "../assets/fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
+// Sử dụng trong app/layout.tsx
+if (process.env.NODE_ENV !== 'production') {
+  validateEnv()
+}
 
 export const metadata: Metadata = {
   title: 'Coolmate - Thời trang nam',
   description: 'Coolmate - Nâng tầm trải nghiệm mua sắm thời trang nam',
   keywords: 'thời trang nam, coolmate, áo nam, quần nam',
-};
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://coolmate.me'
+  ),
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://coolmate.me',
+  },
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
+    <html lang='en' className={`${pangea.variable} ${criteriaCF.variable}`}>
       <body>
         {children}
         <Toaster />
       </body>
     </html>
-  );
+  )
 }

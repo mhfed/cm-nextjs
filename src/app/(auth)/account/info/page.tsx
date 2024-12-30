@@ -1,3 +1,3 @@
 export default function AccountInfoPage() {
-  return <div>Account Info</div>;
+  return <div>Account Info</div>
 }

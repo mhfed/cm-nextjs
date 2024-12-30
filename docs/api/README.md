@@ -17,13 +17,13 @@
 
 ```typescript
 interface ApiResponse<T> {
-  data: T;
-  error?: string;
+  data: T
+  error?: string
   meta?: {
-    page: number;
-    limit: number;
-    total: number;
-  };
+    page: number
+    limit: number
+    total: number
+  }
 }
 ```
 ````

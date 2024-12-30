@@ -1,42 +1,42 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 export function useScrollDirection() {
-  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [isScrollingDown, setIsScrollingDown] = useState(false)
 
   useEffect(() => {
-    let lastScrollTop = 0;
-    let ticking = false;
-    const threshold = 10; // Ngưỡng tối thiểu để trigger (px)
+    let lastScrollTop = 0
+    let ticking = false
+    const threshold = 10 // Ngưỡng tối thiểu để trigger (px)
 
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
-          const difference = Math.abs(currentScrollY - lastScrollTop);
+          const currentScrollY = window.scrollY
+          const difference = Math.abs(currentScrollY - lastScrollTop)
 
           // Chỉ xử lý khi scroll đủ ngưỡng
           if (difference > threshold) {
             if (currentScrollY > lastScrollTop && currentScrollY > 100) {
               // Scrolling down
-              setIsScrollingDown(true);
+              setIsScrollingDown(true)
             } else {
               // Scrolling up
-              setIsScrollingDown(false);
+              setIsScrollingDown(false)
             }
-            lastScrollTop = currentScrollY;
+            lastScrollTop = currentScrollY
           }
 
-          ticking = false;
-        });
+          ticking = false
+        })
 
-        ticking = true;
+        ticking = true
       }
-    };
+    }
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
-  return isScrollingDown;
+  return isScrollingDown
 }
