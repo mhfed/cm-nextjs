@@ -6,10 +6,10 @@ export type Product = {
   seo_alias: string
   vendor: string
   tags: string[]
-  options: ProductOption[]
   images: ProductImage[]
   onsale: boolean
   available: boolean
+  box_exclude?: number
   collections: string[]
   price: number
   compare_price: number
@@ -42,7 +42,24 @@ export type Product = {
   deal_sale: null
   coolclub_sale: CoolClubSale | null
   icon_thumbnail: ProductImage
+  collection_pricing_policy: PricingPolicy[] // Chưa biết type chính xác
+  ini_sold?: number
+  options: ProductOption[]
+  options_value: ProductOptionsValue[]
 }
+export type ProductOptionsValue = {
+  title: string
+  options_id: string
+  options: Option[]
+  values: string[]
+}
+type Option = {
+  title: string
+  slug: string
+  label: string
+  image: ProductImage[]
+}
+
 // TODO: sửa lại type
 export type FlashSale = {
   _id: string
@@ -65,7 +82,7 @@ export type CoolClubSale = {
 export type ProductImage = {
   id: string
   src: string
-  hide: boolean
+  hide?: boolean
 }
 
 export type ProductOption = {

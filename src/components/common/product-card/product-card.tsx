@@ -13,6 +13,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from '@/components/ui/hover-card'
+import { ImageHelper } from '@/lib/helpers/image.helper'
 import { cn } from '@/lib/utils'
 import { Product } from '@/types/product'
 import Image from 'next/image'
@@ -37,7 +38,10 @@ export function ProductCard({ product }: ProductCardProps) {
             </HoverCardTrigger>
 
             {/* Size Options */}
-            <HoverCardContent className='mx-auto' sideOffset={-100}>
+            <HoverCardContent
+              className='mx-auto bg-white/40 backdrop-blur-sm'
+              sideOffset={-150}
+            >
               <SizeVariants />
             </HoverCardContent>
           </HoverCard>
@@ -53,11 +57,23 @@ export function ProductCard({ product }: ProductCardProps) {
 // Color Variants
 // ==============================
 const ColorVariants = () => {
-  const { product, selectedVariant, setSelectedVariant } =
+  const { product, selectedColorVariant, setSelectedColorVariant } =
     useProductCardContext()
   const [showAllVariants, setShowAllVariants] = useState(false)
   const containerRef = React.useRef<HTMLDivElement>(null)
-  const [visibleCount, setVisibleCount] = React.useState(6)
+  const [visibleCount, setVisibleCount] = React.useState(0)
+
+  const colorVariantObj = product.options_value.find(
+    (o) => o?.options_id === 'color'
+  )
+
+  const colorVariants = colorVariantObj?.values
+
+  // effect
+  React.useEffect(() => {
+    if (!colorVariants) return
+    setSelectedColorVariant(colorVariants[0])
+  }, [])
 
   React.useEffect(() => {
     const calculateVisibleCount = () => {
@@ -74,31 +90,40 @@ const ColorVariants = () => {
     window.addEventListener('resize', calculateVisibleCount)
     return () => window.removeEventListener('resize', calculateVisibleCount)
   }, [])
+  if (!colorVariants) return null
 
   return (
     <div ref={containerRef} className='mt-2 gap-2 overflow-x-auto p-1'>
       {(showAllVariants
-        ? product.variants
-        : product.variants.slice(0, visibleCount)
-      ).map((variant, index) => (
+        ? colorVariants
+        : colorVariants.slice(0, visibleCount)
+      ).map((color) => (
         <button
-          key={variant.id}
+          key={color}
           className={cn(
             'z-10 mr-1 h-4 w-6 rounded-full border',
-            selectedVariant === index && 'ring-1 ring-black ring-offset-2'
+            selectedColorVariant === color && 'ring-1 ring-black ring-offset-2'
           )}
-          style={{ backgroundColor: variant.option1 }}
-          onClick={() => setSelectedVariant(index)}
+          style={{
+            backgroundImage: `url('${ImageHelper.getImageUrl(
+              color,
+              '160_181',
+              160,
+              181,
+              85
+            )}')`,
+          }}
+          onClick={() => setSelectedColorVariant(color)}
         />
       ))}
-      {!showAllVariants && product.variants.length > visibleCount && (
+      {!showAllVariants && colorVariants.length > visibleCount && (
         <Button
           variant='ghost'
           size='icon'
           className='h-4 w-4 rounded-full'
           onClick={() => setShowAllVariants(true)}
         >
-          +{product.variants.length - visibleCount}
+          +{colorVariants.length - visibleCount}
         </Button>
       )}
     </div>
@@ -109,22 +134,28 @@ const ColorVariants = () => {
 // Size Variants
 // ==============================
 const SizeVariants = () => {
-  const { product, selectedVariant } = useProductCardContext()
-  const currentVariant = productCardHelper.getCurrentVariant(
-    product,
-    selectedVariant
-  )
+  const { product } = useProductCardContext()
+
+  // const currentVariant = productCardHelper.getCurrentVariant(
+  //   product,
+  //   selectedColorVariant
+  // )
+  const sizeVariantObj = product.options.find((o) => o.option_id === 'size')
+  const sizeVariants = sizeVariantObj?.values
+
+  if (!sizeVariants) return null
 
   return (
-    <div className='flex gap-2'>
-      {currentVariant?.option2 && (
+    <div className='flex flex-wrap gap-2'>
+      {sizeVariants?.map((size) => (
         <Badge
+          key={size}
           variant='outline'
-          className='cursor-pointer hover:bg-primary hover:text-primary-foreground'
+          className='flex min-w-10 cursor-pointer items-center justify-center rounded-md border-none bg-white px-2 py-2 hover:bg-primary hover:text-primary-foreground'
         >
-          {currentVariant.option2}
+          {size}
         </Badge>
-      )}
+      ))}
     </div>
   )
 }
@@ -171,8 +202,13 @@ const ProductCardThumbnail = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >((props, ref) => {
-  const { product } = useProductCardContext()
+  const { product, selectedColorVariant } = useProductCardContext()
 
+  const colorImages = product.options_value
+    .find((o) => o?.options_id === 'color')
+    ?.options.find((o) => o.title === selectedColorVariant)?.image
+
+  if (!colorImages) return null
   return (
     <div
       ref={ref}
@@ -181,7 +217,7 @@ const ProductCardThumbnail = React.forwardRef<
     >
       {/* Main Image */}
       <Image
-        src={`https://media3.coolmate.me${product.images[0].src}`}
+        src={`https://media3.coolmate.me${colorImages[0].src}`}
         alt={product.display_name}
         className='rounded-lg object-cover'
         fill
@@ -191,7 +227,7 @@ const ProductCardThumbnail = React.forwardRef<
       {/* Hover Image */}
       {product.images[1] && (
         <Image
-          src={`https://media3.coolmate.me${product.images[1].src}`}
+          src={`https://media3.coolmate.me${colorImages[1].src}`}
           alt={`${product.display_name} hover`}
           className='absolute inset-0 object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100'
           fill

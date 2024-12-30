@@ -2,8 +2,8 @@ import { Product } from '@/types/product'
 import { createContext, useContext, useState } from 'react'
 
 interface ProductCardContextType {
-  selectedVariant: number
-  setSelectedVariant: (index: number) => void
+  selectedColorVariant: string
+  setSelectedColorVariant: (color: string) => void
   product: Product
 }
 
@@ -16,13 +16,13 @@ export const ProductCardProvider = ({
   children: React.ReactNode
   product: Product
 }) => {
-  const [selectedVariant, setSelectedVariant] = useState(0)
+  const [selectedColorVariant, setSelectedColorVariant] = useState('')
 
   return (
     <ProductCardContext.Provider
       value={{
-        selectedVariant,
-        setSelectedVariant,
+        selectedColorVariant,
+        setSelectedColorVariant,
         product,
       }}
     >
