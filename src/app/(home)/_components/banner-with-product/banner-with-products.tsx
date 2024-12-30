@@ -28,7 +28,7 @@ const BANNER_SECTIONS = [
     carouselAlias: 'do-chay-bo-trang-chu',
   },
   {
-    title: 'Quần LÓT',
+    title: 'QUẦN LÓT',
     subtitle: 'Giảm 50% từ sản phẩm thứ 2',
     ctaText: 'KHÁM PHÁ NGAY',
     ctaLink: '/collections/quan-lot-nam',

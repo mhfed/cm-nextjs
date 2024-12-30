@@ -3,22 +3,12 @@ import type { Metadata } from 'next'
 // import localFont from "next/font/local";
 import { Toaster } from 'sonner'
 import './globals.css'
+import { pangea, criteriaCF } from '@/lib/utils/font'
 
 // Sử dụng trong app/layout.tsx
 if (process.env.NODE_ENV !== 'production') {
   validateEnv()
 }
-
-// const geistSans = localFont({
-//   src: "../assets/fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "../assets/fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
 
 export const metadata: Metadata = {
   title: 'Coolmate - Thời trang nam',
@@ -38,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
+    <html lang='en' className={`${pangea.variable} ${criteriaCF.variable}`}>
       <body>
         {children}
         <Toaster />

@@ -267,9 +267,7 @@ const ProductCardInfo = () => {
       {/* Color variants */}
       <ColorVariants />
 
-      <h3 className='line-clamp-2 text-sm font-medium'>
-        {product.display_name}
-      </h3>
+      <p className='line-clamp-2 text-sm font-normal'>{product.display_name}</p>
 
       {/* Prices */}
       <div className='mt-1 flex items-center justify-between'>

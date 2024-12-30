@@ -11,6 +11,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // Font mặc định là Pangea
+        sans: ['var(--font-pangea)', 'sans-serif'],
+        // Font cho heading là CriteriaCF
+        criteria: ['var(--font-criteria)', 'sans-serif'],
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
