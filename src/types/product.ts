@@ -65,6 +65,7 @@ export type CoolClubSale = {
 export type ProductImage = {
   id: string
   src: string
+  hide: boolean
 }
 
 export type ProductOption = {

@@ -1,5 +1,5 @@
 import { FilterButton } from '@/app/(home)/_components/featured-products/filter-button'
-import { ProductCarousel } from '@/components/shared/product-carousel'
+import { ProductCarousel } from '@/components/common/product-carousel'
 import { Container } from '@/components/ui/container'
 type FeaturedProductsProps = {
   collectionSeoAlias: string

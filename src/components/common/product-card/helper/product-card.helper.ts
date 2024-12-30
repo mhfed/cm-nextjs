@@ -1,7 +1,7 @@
 // TODO: sửa lại file này
 import { Product, ProductVariant } from '@/types/product'
 
-export const productHelper = {
+export const productCardHelper = {
   // Get current product variant
   getCurrentVariant: (
     product: Product,

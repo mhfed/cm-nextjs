@@ -1,5 +1,8 @@
-import { ProductCard } from '@/components/shared/product-card'
-import { ProductCardSkeleton } from '@/components/shared/product-card-skeleton'
+import {
+  ProductCard,
+  ProductCardSkeleton,
+} from '@/components/common/product-card'
+
 import {
   Carousel,
   CarouselContent,
@@ -89,8 +92,8 @@ async function ProductCarouselContent({
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className='absolute left-0 top-1/2 -translate-y-1/2' />
-        <CarouselNext className='absolute right-0 top-1/2 -translate-y-1/2' />
+        <CarouselPrevious className='absolute -left-10 top-1/2 h-10 w-10 -translate-y-1/2 bg-black text-white' />
+        <CarouselNext className='absolute -right-10 top-1/2 h-10 w-10 -translate-y-1/2 bg-black text-white' />
       </Carousel>
     </div>
   )
